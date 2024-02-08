@@ -8,7 +8,7 @@ const { linkedIn, github } = contactLinks
 ---
 
 <footer>
-  <p>Built by Travis Wilson in Portland, OR<br />built on Astro, with inspiration from @jlaurentpdx</p>
+  <p>Built using Astro by Travis Wilson in Portland, OR<br />featuring inspiration from <a href="https://jlaurent.dev">@jlaurentpdx</a></p>
   <div class="contacts-container">
     <LinkNewTab link={github.link}>
       <Icon name="ion:logo-github" aria-label={github.label} />
@@ -53,6 +53,7 @@ const { linkedIn, github } = contactLinks
     width: 80%;
     margin: 0;
     padding-top: 2rem;
+    font-size: .8rem;
     color: var(--mid);
     line-height: 1.5;
     border-top-color: var(--mid);

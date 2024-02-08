@@ -1,17 +1,17 @@
 export const contactLinks = {
   linkedIn: {
-    label: 'Jordan on LinkedIn',
-    link: 'https://www.linkedin.com/in/jlaurentpdx/',
+    label: 'Lysdestic on LinkedIn',
+    link: 'https://www.linkedin.com/in/twilsonpdx/',
     text: 'LinkedIn',
   },
   github: {
-    label: 'Jordan on GitHub',
-    link: 'https://github.com/jlaurentpdx',
+    label: 'Lysdestic on GitHub',
+    link: 'https://github.com/lysdestic',
     text: 'GitHub',
   },
   email: {
-    label: 'Email Jordan',
-    link: 'mailto:jlaurent.pdx@gmail.com',
-    text: 'jlaurent.pdx@gmail.com',
+    label: 'Email Lysdestic',
+    link: 'mailto:admin@lysdestic.com',
+    text: 'admin@lysdestic.com',
   },
 }

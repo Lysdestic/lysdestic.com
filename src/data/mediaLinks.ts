@@ -1,12 +1,13 @@
 export const mediaLinks = {
-  collabLab: {
-    label: 'Visit The Collab Lab',
-    link: 'https://the-collab-lab.codes/',
-    text: 'The Collab Lab',
+  theanxietiesbandcamp: {
+    label: "The Anxieties on Bandcamp",
+    link: 'https://theanxieties.bandcamp.com/',
+    text: 'The Anxieties',
   },
-  techTalk: {
-    label: "View Jordan's tech talk on YouTube",
-    link: 'https://www.youtube.com/watch?v=u76CKtRjgq0',
-    text: '2022 tech talk',
+  gentsbandcamp: {
+    label: "Lexxi Vexx and the Modern Gentlemen on Bandcamp",
+    link: 'https://themoderngentlemen.bandcamp.com/',
+    text: 'Lexxi Vexx & the Modern Gentlemen',
   },
+
 }

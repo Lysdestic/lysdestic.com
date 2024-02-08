@@ -1,23 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-// import LinkNewTab from '../../components/astro/LinkNewTab.astro'
-// import { mediaLinks } from '../../data/mediaLinks'
+import LinkNewTab from '../../components/astro/LinkNewTab.astro'
+import { mediaLinks } from '../../data/mediaLinks'
 
-// const { collabLab, techTalk } = mediaLinks
+const {theanxietiesbandcamp,  gentsbandcamp} = mediaLinks
 ---
 
 <Layout includeHeading subtitle="Media">
-  <!-- <section id="media">
+  <section id="media">
     <article>
       <p>
-        My experience as an artist continues to develop with my work on the web. If you're interested in learning about
-        my winding path from music and education to code, I gave a
-        <LinkNewTab {...techTalk}>2022 tech talk</LinkNewTab> in collaboration with
-        <LinkNewTab {...collabLab} /> on how making music led me to pursue a future in code, which you can view below.
+        I've been playing in bands since I was 16 years old. Originally cutting my teeth in the Nashville music scene, I 
+        eventually moved to Portland, OR and have been rocking the punk scene here since 2013. You can check out some 
+        of my projects here: 
+      </p>
+      <p>
+      <LinkNewTab {...theanxietiesbandcamp} /><br />
+      Garage rockin' punk, mad scientist-core for the paranoid and suspicious.
+      </p>
+      <p>
+      <LinkNewTab {...gentsbandcamp} /><br />
+      Pacific Northwest garage-punk rock'n'roll.
       </p>
       <figure>
         <iframe
-          src="https://www.youtube-nocookie.com/embed/u76CKtRjgq0"
+          src="https://www.youtube-nocookie.com/embed/07ncTiDz4lQ"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -25,7 +32,7 @@ import Layout from '../../layouts/Layout.astro'
         </iframe>
       </figure>
     </article>
-  </section> -->
+  </section>
 </Layout>
 
 <style>

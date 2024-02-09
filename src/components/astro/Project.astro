@@ -2,7 +2,7 @@
 import '@fontsource/rokkitt'
 import '@fontsource/rokkitt/variable.css'
 import LinkNewTab from './LinkNewTab.astro'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 type ProjectLink = {
   content: string
@@ -33,8 +33,8 @@ const { title, description, label, imageUrl, imageAlt, links } = Astro.props
 </li>
 
 <style>
-  [astro-icon] {
-    width: 1.5rem;
+  [data-icon] {
+    font-size: 1.5rem;
   }
 
   .content-container {
@@ -113,8 +113,8 @@ const { title, description, label, imageUrl, imageAlt, links } = Astro.props
   }
 
   @media screen and (min-width: 600px) {
-    [astro-icon] {
-      width: 2rem;
+    [data-icon] {
+      font-size: 2rem;
     }
 
     .content-container {

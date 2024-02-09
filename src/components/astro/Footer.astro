@@ -1,7 +1,7 @@
 ---
 import LinkNewTab from './LinkNewTab.astro'
 // import Email from './Email.astro'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import { contactLinks } from '../../data/contactLinks'
 
 const { linkedIn, github, email } = contactLinks
@@ -29,8 +29,8 @@ const { linkedIn, github, email } = contactLinks
 </footer>
 
 <style>
-  [astro-icon] {
-    width: 2rem;
+  [data-icon] {
+    font-size: 2rem;
     color: var(--dark);
   }
 
@@ -83,7 +83,7 @@ const { linkedIn, github, email } = contactLinks
   }
 
   @media (prefers-color-scheme: dark) {
-    [astro-icon] {
+    [data-icon] {
       color: var(--light);
     }
   }

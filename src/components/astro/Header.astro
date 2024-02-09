@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 ---
 
 <header>
@@ -30,8 +30,8 @@ import { Icon } from 'astro-icon'
     }
   }
 
-  [astro-icon] {
-    width: 6rem;
+  [data-icon] {
+    font-size: 6rem;
     padding: 0.5rem;
 
     fill: var(--dark);
@@ -47,9 +47,9 @@ import { Icon } from 'astro-icon'
     visibility: visible;
   }
 
-  a:hover > [astro-icon],
-  a:focus > [astro-icon],
-  a:active > [astro-icon] {
+  a:hover > [data-icon],
+  a:focus > [data-icon],
+  a:active > [data-icon] {
     .base {
       transition: stroke 100ms ease-in-out;
       stroke: transparent;
@@ -100,13 +100,13 @@ import { Icon } from 'astro-icon'
   }
 
   @media screen and (min-width: 600px) {
-    [astro-icon] {
-      width: 8rem;
+    [data-icon] {
+      font-size: 4.5rem;
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    [astro-icon] {
+    [data-icon] {
       fill: var(--light);
       stroke: var(--light);
     }

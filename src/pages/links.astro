@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro'
+import LinkNewTab from '../components/astro/LinkNewTab.astro'
+import Email from '../components/astro/Email.astro'
+import { contactLinks } from '../data/contactLinks'
+import { Icon } from 'astro-icon/components'
+
+const { linkedIn, github } = contactLinks
+---
+
+<Layout includeHeading subtitle="Me on the Web">
+    <table>
+        <tr>
+            <td>
+                <Icon name="mdi:music" class="big-icon" />
+                <h3>All the Music!</h3>
+                <p>Find me on last.fm <a href="https://last.fm/user/lysdestic" target="_blank" rel="noopener noreferrer">here.</a></p>
+            </td>
+            <td>
+                <Icon name="mdi:music-clef-bass" class="big-icon" />
+                <h3>Bass Guitar</h3>
+                <p>Holding down the low-end for 20 years!</p>	
+            </td>
+            <td>
+                <Icon name="simple-icons:readdotcv" class="big-icon" />
+                <h3>Reading & Writing.</h3>
+                <p>Love to read, love to write.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <Icon name="simple-icons:opensuse" class="big-icon" />
+                <h3>/dev/null</h3>
+                <p>Avid linux user (preferably openSUSE) since 2003!</p>
+            </td>
+            <td>
+                <Icon name="mdi:microsoft-xbox-controller" class="big-icon" />
+                <h3>Video Games</h3>
+                <p>Playing (and breaking!) video games on a platform near you.</p>
+            </td>
+            <td>
+                <Icon name="simple-icons:startrek" class="big-icon" />
+                <h3>Star Trek</h3>
+                <p>Live long and prosper, y'all.</p>
+            </td>
+        </tr>
+    </table>    
+</Layout>
+
+<style>
+    [data-icon] {
+      font-size: 5rem;
+      color: var(--dark);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      [data-icon] {
+        color: var(--light);
+      }
+    }
+  </style>

@@ -1,24 +1,22 @@
 :root {
   --dark: hsl(216, 23%, 23%);
   --light: hsl(0, 0%, 98%);
-  --mid: hsl(0, 0%, 70%);
+  --mid: hsl(300, 1%, 42%);
   --light-gradient: linear-gradient(
-    90deg,
-    hsl(216deg 24% 96%) 0%,
-    hsl(216deg 24% 97%) 2%,
-    hsl(216deg 24% 98%) 5%,
-    hsl(216deg 24% 99%) 8%,
-    hsl(300deg 25% 98%) 13%,
-    hsl(300deg 25% 98%) 19%,
-    hsl(300deg 25% 98%) 30%,
-    hsl(300deg 25% 98%) 53%,
-    hsl(300deg 25% 98%) 76%,
-    hsl(300deg 25% 98%) 85%,
-    hsl(300deg 25% 98%) 91%,
-    hsl(216deg 24% 99%) 94%,
-    hsl(216deg 24% 98%) 97%,
-    hsl(216deg 24% 97%) 99%,
-    hsl(216deg 24% 96%) 100%
+    15deg,
+    hsl(264deg 12% 84%) 0%,
+    hsl(268deg 18% 83%) 8%,
+    hsl(272deg 24% 83%) 17%,
+    hsl(277deg 28% 82%) 25%,
+    hsl(276deg 26% 81%) 34%,
+    hsl(275deg 24% 79%) 42%,
+    hsl(274deg 22% 78%) 51%,
+    hsl(276deg 21% 76%) 59%,
+    hsl(278deg 20% 74%) 68%,
+    hsl(280deg 19% 72%) 76%,
+    hsl(272deg 20% 71%) 84%,
+    hsl(263deg 22% 71%) 92%,
+    hsl(255deg 23% 70%) 100%
   );
   --dark-gradient: linear-gradient(
     15deg,

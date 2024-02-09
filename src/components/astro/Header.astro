@@ -1,5 +1,6 @@
 ---
 import Navigation from './Navigation.astro'
+import avatar from '../../../assets/images/avatar.png'
 // import { Icon } from 'astro-icon/components'
 ---
 
@@ -9,7 +10,7 @@ import Navigation from './Navigation.astro'
       <Icon name="logo" aria-label="Go to homepage" />
       <span class="link-text">Homepage</span>
     </a> -->
-    <img src="favicon.svg" style="width:48px;height:48px;">
+    <img src={avatar} style="width:48px;height:48px;">
     <Navigation />
   </nav>
 </header>

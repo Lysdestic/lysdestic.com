@@ -11,12 +11,6 @@ export const projects = [
       'A musical sequencer with vibrant colors is used by a performer, changing properties of the sequencer like which notes and instruments are being played and at what volume.',
     links: [
       {
-        content: 'Live Deploy',
-        url: 'https://geo-tone-v2.netlify.app/',
-        src: 'netlify',
-        icon: icons.netlify,
-      },
-      {
         content: 'Frontend Repo',
         url: 'https://github.com/kakizaki55/geo-tone-frontend',
         src: 'github',

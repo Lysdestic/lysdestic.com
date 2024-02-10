@@ -1,5 +1,6 @@
 # build output
 dist/
+
 # generated types
 .astro/
 
@@ -19,8 +20,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-
-.README.md
 
 # files that may or may not return from the abyss
 .archive

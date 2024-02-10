@@ -1,173 +1,180 @@
 :root {
-  --dark: hsl(216, 23%, 23%);
-  --light: hsl(0, 0%, 98%);
-  --mid: hsl(300, 1%, 42%);
-  --light-gradient: linear-gradient(
-    15deg,
-    hsl(264deg 12% 84%) 0%,
-    hsl(268deg 18% 83%) 8%,
-    hsl(272deg 24% 83%) 17%,
-    hsl(277deg 28% 82%) 25%,
-    hsl(276deg 26% 81%) 34%,
-    hsl(275deg 24% 79%) 42%,
-    hsl(274deg 22% 78%) 51%,
-    hsl(276deg 21% 76%) 59%,
-    hsl(278deg 20% 74%) 68%,
-    hsl(280deg 19% 72%) 76%,
-    hsl(272deg 20% 71%) 84%,
-    hsl(263deg 22% 71%) 92%,
-    hsl(255deg 23% 70%) 100%
-  );
-  --dark-gradient: linear-gradient(
-    15deg,
-    hsl(257deg 100% 8%) 0%,
-    hsl(258deg 100% 9%) 21%,
-    hsl(260deg 100% 10%) 30%,
-    hsl(262deg 100% 11%) 37%,
-    hsl(262deg 100% 13%) 44%,
-    hsl(261deg 100% 15%) 50%,
-    hsl(261deg 100% 16%) 56%,
-    hsl(262deg 100% 17%) 62%,
-    hsl(264deg 100% 18%) 68%,
-    hsl(265deg 100% 18%) 75%,
-    hsl(269deg 100% 18%) 83%,
-    hsl(273deg 100% 18%) 91%,
-    hsl(277deg 100% 18%) 100%
-  );
-}
-
-html {
-  height: 100%;
-  background-image: var(--light-gradient);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: var(--dark);
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-  line-height: calc(1em + 0.725rem);
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  width: 100%;
-  max-width: 80ch;
-  margin: 0 auto;
-  padding: 1rem;
-  color: inherit;
-  font-family: Segoe UI, Tahoma, Verdana, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-h1 {
-  font-size: 4.5rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 1rem 0;
-  font-family: Georgia, Times, 'Times New Roman', serif;
-  font-weight: 400;
-}
-
-p,
-a,
-address,
-article {
-  color: inherit;
-  font-size: inherit;
-}
-
-a {
-  text-decoration-color: var(--mid);
-  text-underline-offset: 0.25rem;
-}
-
-a:hover,
-a:focus,
-a:active,
-address:hover,
-address:focus,
-address:active {
-  outline-color: inherit;
-  outline-style: solid;
-  outline-width: 2px;
-  outline-offset: 1px;
-  border-radius: 2px;
-}
-
-@media screen and (min-width: 600px) {
+	--dark: hsl(216, 23%, 23%);
+	--light: hsl(0, 0%, 98%);
+	--mid: hsl(300, 1%, 42%);
+	--light-gradient: linear-gradient(
+	  15deg,
+	  hsl(264deg 12% 84%) 0%,
+	  hsl(268deg 18% 83%) 8%,
+	  hsl(272deg 24% 83%) 17%,
+	  hsl(277deg 28% 82%) 25%,
+	  hsl(276deg 26% 81%) 34%,
+	  hsl(275deg 24% 79%) 42%,
+	  hsl(274deg 22% 78%) 51%,
+	  hsl(276deg 21% 76%) 59%,
+	  hsl(278deg 20% 74%) 68%,
+	  hsl(280deg 19% 72%) 76%,
+	  hsl(272deg 20% 71%) 84%,
+	  hsl(263deg 22% 71%) 92%,
+	  hsl(255deg 23% 70%) 100%
+	);
+	--dark-gradient: linear-gradient(
+	  15deg,
+	  hsl(257deg 100% 8%) 0%,
+	  hsl(258deg 100% 9%) 21%,
+	  hsl(260deg 100% 10%) 30%,
+	  hsl(262deg 100% 11%) 37%,
+	  hsl(262deg 100% 13%) 44%,
+	  hsl(261deg 100% 15%) 50%,
+	  hsl(261deg 100% 16%) 56%,
+	  hsl(262deg 100% 17%) 62%,
+	  hsl(264deg 100% 18%) 68%,
+	  hsl(265deg 100% 18%) 75%,
+	  hsl(269deg 100% 18%) 83%,
+	  hsl(273deg 100% 18%) 91%,
+	  hsl(277deg 100% 18%) 100%
+	);
+  }
+  
+  html {
+	height: 100%;
+	background-image: var(--light-gradient);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: var(--dark);
+	scroll-behavior: smooth;
+  }
+  
+  * {
+	box-sizing: border-box;
+	line-height: calc(1em + 0.725rem);
+	-webkit-font-smoothing: antialiased;
+  }
+  
   body {
-    font-size: 1.3rem;
+	width: 100%;
+	max-width: 80ch;
+	margin: 0 auto;
+	padding: 1rem;
+	color: inherit;
+	font-family: Segoe UI, Tahoma, Verdana, sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
   }
-
-  a {
-    text-decoration-style: dotted;
-  }
-
+  
   h1 {
-    font-size: 6rem;
+	font-size: 4.5rem;
   }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 100% 50%;
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+	margin: 0;
+	padding: 1rem 0;
+	font-family: Georgia, Times, 'Times New Roman', serif;
+	font-weight: 400;
   }
-  50% {
-    background-position: 0% 50%;
+  
+  p,
+  a,
+  address,
+  article {
+	color: inherit;
+	font-size: inherit;
   }
-  100% {
-    background-position: 100% 50%;
+  
+  a {
+	text-decoration-color: var(--mid);
+	text-underline-offset: 0.25rem;
   }
-}
-
-.gradient-container {
-  background: linear-gradient(320deg, hsl(300, 82%, 44%), hsl(300, 72%, 47%), hsl(271, 44%, 63%), hsl(202, 84%, 40%));
-  background-size: 300% 200%;
-  background-clip: text;
-  animation: gradient 20s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: var(--dark);
-}
-
-.heading-greeting {
-  display: block;
-}
-
-.heading-name,
-.role {
-  -webkit-text-fill-color: transparent;
-}
-
-@media screen and (min-width: 600px) {
-  .intro {
-    font-size: 6rem;
+  
+  a:hover,
+  a:focus,
+  a:active,
+  address:hover,
+  address:focus,
+  address:active {
+	outline-color: inherit;
+	outline-style: solid;
+	outline-width: 2px;
+	outline-offset: 1px;
+	border-radius: 2px;
   }
-
+  
+  @media screen and (min-width: 600px) {
+	body {
+	  font-size: 1.3rem;
+	}
+  
+	a {
+	  text-decoration-style: dotted;
+	}
+  
+	h1 {
+	  font-size: 6rem;
+	}
+  }
+  
+  @keyframes gradient {
+	0% {
+	  background-position: 100% 50%;
+	}
+	50% {
+	  background-position: 0% 50%;
+	}
+	100% {
+	  background-position: 100% 50%;
+	}
+  }
+  
+  .gradient-container {
+	background: linear-gradient(320deg, hsl(300, 82%, 44%), hsl(300, 72%, 47%), hsl(271, 44%, 63%), hsl(202, 84%, 40%));
+	background-size: 300% 200%;
+	background-clip: text;
+	animation: gradient 20s ease infinite;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: var(--dark);
+  }
+  
+  .heading-greeting {
+	display: block;
+  }
+  
   .heading-name,
   .role {
-    font-weight: 800;
+	-webkit-text-fill-color: transparent;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .gradient-container {
-    -webkit-text-fill-color: var(--light);
+  .logoimg {
+	border-radius: 50%;
+	width: 64px;
+	height: 64px;
   }
-  html {
-    background-image: var(--dark-gradient);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: hsl(221deg 100% 9%);
-    color: var(--light);
-    }
+  
+  @media screen and (min-width: 600px) {
+	.intro {
+	  font-size: 6rem;
+	}
+  
+	.heading-name,
+	.role {
+	  font-weight: 800;
+	}
   }
+  
+  @media (prefers-color-scheme: dark) {
+	.gradient-container {
+	  -webkit-text-fill-color: var(--light);
+	}
+	html {
+	  background-image: var(--dark-gradient);
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-color: hsl(221deg 100% 9%);
+	  color: var(--light);
+	  }
+	}
+  

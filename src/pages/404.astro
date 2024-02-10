@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Homer from '../../assets/gifs/transparent-homer-bush.gif'
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Homer from '../assets/gifs/transparent-homer-bush.gif';
 ---
 
 <Layout>
   <h1>D'oh!</h1>
-  <center></center>
-  <p><img src={Homer}><br /><br />
-  There's nothing for you here, try going <a href="/">home.</a></p>
+  <p><Image src={Homer} alt="" /></p>
+  <p>There's nothing for you here, try going <a href="/">home.</a></p>
 </Layout>

@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import LinkNewTab from '../components/astro/LinkNewTab.astro'
 import { mediaLinks } from '../data/mediaLinks'
 
-const {theanxietiesbandcamp,  gentsbandcamp} = mediaLinks
+const { theanxietiesbandcamp, gentsbandcamp, recreationspdx } = mediaLinks
 ---
 
 <Layout includeHeading subtitle="Media">
@@ -21,6 +21,10 @@ const {theanxietiesbandcamp,  gentsbandcamp} = mediaLinks
       <p>
       <span class="role"><LinkNewTab {...gentsbandcamp} /></span><br />
       Pacific Northwest garage-punk rock'n'roll.
+      </p>
+      <p>
+      <span class="role"><LinkNewTab {...recreationspdx} /></span><br />
+      Boozey & Saucy PDX Americana.
       </p>
       <figure>
         <iframe

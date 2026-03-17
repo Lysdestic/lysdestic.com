@@ -9,5 +9,9 @@ export const mediaLinks = {
     link: 'https://themoderngentlemen.bandcamp.com/',
     text: 'Lexxi Vexx & the Modern Gentlemen',
   },
-
+  recreationspdx: {
+    label: "Recreations on Bandcamp",
+    link: 'https://recreationspdx.bandcamp.com/',
+    text: 'Recreations',
+  },
 }

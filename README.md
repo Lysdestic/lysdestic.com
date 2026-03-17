@@ -18,6 +18,7 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 ---
 
 ## Project structure
+
 ```
 src/
   assets/         # Static assets (avatar, gifs)
@@ -72,6 +73,7 @@ Everything lives in `src/styles/global.css`, organized into sections:
 ### Stardate / siterev
 
 The footer displays a build-time stardate using the TNG formula anchored to the TNG premiere date (July 15, 1987):
+
 ```
 (((now - epoch) / 1000 / 3155.76) + 410000) / 10
 ```
@@ -108,6 +110,7 @@ In local dev (`npm run dev`), `PUBLIC_STARDATE` is not set and the footer displa
 ---
 
 ## Local dev
+
 ```bash
 npm install
 npm run dev       # http://localhost:4321
@@ -126,6 +129,7 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 
 1. Make sure all changes are committed and pushed to `main`.
 2. Run the deploy script:
+
 ```bash
 ./deploy.sh
 ```
@@ -137,6 +141,7 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 7. In cPanel, purge the host's cache.
 8. In Cloudflare, purge cache if still stale (Caching → Purge Everything, or via API).
 9. Commit the `package.json` version bump:
+
 ```bash
 git add package.json
 git commit -m "siterev $(node -p "require('./package.json').version")"

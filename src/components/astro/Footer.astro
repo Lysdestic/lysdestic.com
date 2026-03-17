@@ -4,11 +4,7 @@ import LinkNewTab from './LinkNewTab.astro'
 import { Icon } from 'astro-icon/components'
 import { contactLinks } from '../../data/contactLinks'
 
-const stardate = (() => {
-    const now = new Date()
-    const epoch = new Date('1987-07-15T00:00:00Z')
-    return ((now.getTime() - epoch.getTime()) / 1000 / 3155.76 + 410000) / 10
-})().toFixed(1)
+const stardate = import.meta.env.PUBLIC_STARDATE
 
 const { linkedIn, github, email, lastfm, facebook } = contactLinks
 ---

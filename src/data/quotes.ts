@@ -51,7 +51,7 @@ export const quotes = [
     },
     {
         text: 'We must be careful about what we pretend to be.',
-        source: 'Player Piano',
+        source: 'Mother Night',
         author: 'Kurt Vonnegut',
     },
 ]

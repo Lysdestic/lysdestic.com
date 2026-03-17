@@ -17,18 +17,26 @@ const { Content } = await render(post)
 <Layout includeHeading subtitle={post.data.title}>
     <article class="gradient-container">
         <time datetime={post.data.date.toISOString()}>
-            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {
+                post.data.date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                })
+            }
         </time>
         <div class="post-content">
             <Content />
         </div>
-        {post.data.tags && (
-            <div class="tags">
-                {post.data.tags.map((tag) => (
-                    <span class="tag">{tag}</span>
-                ))}
-            </div>
-        )}
+        {
+            post.data.tags && (
+                <div class="tags">
+                    {post.data.tags.map((tag) => (
+                        <span class="tag">{tag}</span>
+                    ))}
+                </div>
+            )
+        }
     </article>
 </Layout>
 

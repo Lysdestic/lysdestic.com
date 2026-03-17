@@ -145,7 +145,7 @@ address:active {
   border-radius: 2px;
 }
 
-footer a {
+.contacts-container a {
   background-image: none;
   animation: none;
 }

@@ -1,9 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import LinkNewTab from '../components/astro/LinkNewTab.astro'
+import VideoPlayer from '../components/astro/VideoPlayer.astro'
 import { mediaLinks } from '../data/mediaLinks'
 
 const { theanxietiesbandcamp, gentsbandcamp, recreationspdx } = mediaLinks
+
+const videos = [
+    { id: '07ncTiDz4lQ', title: 'The Anxieties - Blank Stares' },
+    {
+        id: '144g4wT--Qo',
+        title: 'Lexxi Vexx & the Modern Gentlemen - Big Shiny Bomb',
+    },
+    {
+        id: '7tett8B5_7g',
+        title: "Imperative Therapy Video: For What It's Worth",
+    },
+]
 ---
 
 <Layout includeHeading subtitle="Media">
@@ -31,33 +44,7 @@ const { theanxietiesbandcamp, gentsbandcamp, recreationspdx } = mediaLinks
                 />
                 Boozey & Saucy PDX Americana.
             </p>
-            <figure>
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/07ncTiDz4lQ"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                >
-                </iframe>
-            </figure>
-            <figure>
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/144g4wT--Qo"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                >
-                </iframe>
-            </figure>
-            <figure>
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/7tett8B5_7g"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                >
-                </iframe>
-            </figure>
+            <VideoPlayer videos={videos} />
         </article>
     </section>
 </Layout>

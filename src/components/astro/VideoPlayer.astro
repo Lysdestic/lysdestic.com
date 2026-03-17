@@ -1,0 +1,144 @@
+---
+interface Video {
+    id: string
+    title: string
+}
+
+interface Props {
+    videos: Video[]
+    cycleInterval?: number
+}
+
+const { videos, cycleInterval = 15000 } = Astro.props
+---
+
+<div class="video-player">
+    <div class="video-panel">
+        <iframe
+            id="video-iframe"
+            src={`https://www.youtube-nocookie.com/embed/${videos[0].id}`}
+            title={videos[0].title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    <div class="video-thumbnails">
+        {
+            videos.map((video, index) => (
+                <button
+                    class={`thumb-btn ${index === 0 ? 'active' : ''}`}
+                    data-video-id={video.id}
+                    data-video-title={video.title}
+                    data-index={index}
+                    aria-label={`Play ${video.title}`}
+                >
+                    <img
+                        src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                        alt={video.title}
+                        loading="lazy"
+                    />
+                    <div class="thumb-overlay">▶</div>
+                </button>
+            ))
+        }
+    </div>
+</div>
+
+<script define:vars={{ videos }}>
+    const iframe = document.getElementById('video-iframe')
+    const buttons = document.querySelectorAll('.thumb-btn')
+    const panel = document.querySelector('.video-panel')
+    let isPlaying = false
+
+    function loadVideo(index) {
+        const video = videos[index]
+        iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}`
+        iframe.title = video.title
+        buttons.forEach((btn, i) => {
+            btn.classList.toggle('active', i === index)
+        })
+    }
+
+    panel.addEventListener('click', () => {
+        isPlaying = true
+    })
+
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            isPlaying = false
+            loadVideo(parseInt(btn.dataset.index))
+        })
+    })
+</script>
+
+<style>
+    .video-player {
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .video-panel {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .video-panel iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+
+    .video-thumbnails {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .thumb-btn {
+        flex: 1;
+        position: relative;
+        padding: 0;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        background: none;
+        transition: border-color 200ms ease;
+    }
+
+    .thumb-btn img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .thumb-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: opacity 200ms ease;
+    }
+
+    .thumb-btn:hover .thumb-overlay,
+    .thumb-btn.active .thumb-overlay {
+        opacity: 1;
+    }
+
+    .thumb-btn.active {
+        border-color: hsl(271, 44%, 63%);
+    }
+
+    .thumb-btn:hover {
+        border-color: hsl(300, 72%, 47%);
+    }
+</style>

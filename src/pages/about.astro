@@ -2,8 +2,6 @@
 import Layout from '../layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { quotes } from '../data/quotes'
-const randomQuote =
-    quotes[Math.floor(Math.random() * quotes.length)] ?? quotes[0]!
 ---
 
 <Layout includeHeading subtitle="About">
@@ -59,13 +57,19 @@ const randomQuote =
                         aria-label="Reading"
                     />
                     <h3>Reading</h3>
-                    <p>"{randomQuote.text}"</p>
-                    <p class="quote-source">— {randomQuote.source}</p>
+                    <p id="quote-text"></p>
+                    <p class="quote-source" id="quote-source"></p>
                 </td>
             </tr>
         </table>
     </article>
 </Layout>
+
+<script define:vars={{ quotes }}>
+    const q = quotes[Math.floor(Math.random() * quotes.length)]
+    document.getElementById('quote-text').textContent = `"${q.text}"`
+    document.getElementById('quote-source').textContent = `— ${q.source}`
+</script>
 
 <style>
     svg[data-icon] {

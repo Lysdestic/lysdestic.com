@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog')
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<Layout includeHeading subtitle={post.data.title}>
+    <article class="gradient-container">
+        <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <div class="post-content">
+            <Content />
+        </div>
+        {post.data.tags && (
+            <div class="tags">
+                {post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                ))}
+            </div>
+        )}
+    </article>
+</Layout>
+
+<style>
+    time {
+        font-size: 0.85rem;
+        color: var(--mid);
+        -webkit-text-fill-color: unset;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--mid);
+        border-radius: 2px;
+        -webkit-text-fill-color: unset;
+    }
+
+    .post-content {
+        -webkit-text-fill-color: unset;
+    }
+
+    .post-content :global(h1),
+    .post-content :global(h2),
+    .post-content :global(h3) {
+        -webkit-text-fill-color: unset;
+    }
+</style>

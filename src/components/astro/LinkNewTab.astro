@@ -3,11 +3,11 @@ const { link, text, class: className } = Astro.props
 ---
 
 <a href={link} target="_blank" rel="noopener" class={className}>
-  <slot>{text}</slot>
+    <slot>{text}</slot>
 </a>
 
 <style>
-  a {
-    display: inline-block;
-  }
+    a {
+        display: inline-block;
+    }
 </style>

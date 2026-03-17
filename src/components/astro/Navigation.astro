@@ -1,49 +1,49 @@
 <div class="nav-links">
-  <!-- <a href="/projects">Projects</a> -->
-  <a href="/">Home</a>
-  <a href="/media">Media</a>
-  <a href="/contact">Contact</a>
+    <!-- <a href="/projects">Projects</a> -->
+    <a href="/">Home</a>
+    <a href="/media">Media</a>
+    <a href="/contact">Contact</a>
 </div>
 
 <style>
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.2rem 0.5rem;
-  }
-
-  @media screen and (min-width: 600px) {
     .nav-links {
-      flex-direction: row;
-      gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
     .nav-links a {
-      padding: 0.5rem 1rem;
-      width: fit-content;
+        display: inline-block;
+        width: fit-content;
+        padding: 0.2rem 0.5rem;
     }
 
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background-color: var(--dark);
-      color: var(--light);
-      outline: none;
-      border-radius: 5px;
-      transition: background ease-out 200ms;
-    }
-  }
+    @media screen and (min-width: 600px) {
+        .nav-links {
+            flex-direction: row;
+            gap: 20px;
+        }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background-color: var(--light);
-      color: var(--dark);
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            width: fit-content;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: var(--dark);
+            color: var(--light);
+            outline: none;
+            border-radius: 5px;
+            transition: background ease-out 200ms;
+        }
     }
-  }
+
+    @media (prefers-color-scheme: dark) {
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+    }
 </style>

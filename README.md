@@ -8,16 +8,17 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 
 ## Stack
 
-- **[Astro](https://astro.build) v6** — static site generator, outputs flat HTML/CSS/JS
-- **[astro-icon](https://github.com/natemoo-re/astro-icon)** with `@iconify-json/ion` — icon set used in footer
-- **[@fontsource/albert-sans](https://fontsource.org/fonts/albert-sans)** and **[@fontsource/rokkitt](https://fontsource.org/fonts/rokkitt)** — self-hosted fonts
-- **Prettier** — code formatting
-- **TypeScript** (strict) — via `astro/tsconfigs/strictest`
-- Deployed to **cPanel shared hosting** (The Hosting Folks), proxied through **Cloudflare**
+-   **[Astro](https://astro.build) v6** — static site generator, outputs flat HTML/CSS/JS
+-   **[astro-icon](https://github.com/natemoo-re/astro-icon)** with `@iconify-json/ion` — icon set used in footer
+-   **[@fontsource/albert-sans](https://fontsource.org/fonts/albert-sans)** and **[@fontsource/rokkitt](https://fontsource.org/fonts/rokkitt)** — self-hosted fonts
+-   **Prettier** — code formatting
+-   **TypeScript** (strict) — via `astro/tsconfigs/strictest`
+-   Deployed to **cPanel shared hosting** (The Hosting Folks), proxied through **Cloudflare**
 
 ---
 
 ## Project structure
+
 ```
 src/
   assets/         # Static assets (avatar, gifs)
@@ -41,12 +42,12 @@ src/
 
 ## Pages
 
-| Page | Route | Notes |
-|------|-------|-------|
-| Home | `/` | Heading "Howdy" via Layout, gradient container with intro text |
-| Media | `/media` | Band links + embedded YouTube videos |
-| Contact | `/contact` | LinkedIn, GitHub, email links |
-| 404 | `/404` | Homer backing into bushes gif |
+| Page    | Route      | Notes                                                          |
+| ------- | ---------- | -------------------------------------------------------------- |
+| Home    | `/`        | Heading "Howdy" via Layout, gradient container with intro text |
+| Media   | `/media`   | Band links + embedded YouTube videos                           |
+| Contact | `/contact` | LinkedIn, GitHub, email links                                  |
+| 404     | `/404`     | Homer backing into bushes gif                                  |
 
 All pages use `Layout.astro`. Pages with a visible heading pass `includeHeading` and `subtitle` props — the subtitle becomes the `<h1>` and the browser tab title.
 
@@ -56,14 +57,14 @@ All pages use `Layout.astro`. Pages with a visible heading pass `includeHeading`
 
 Everything lives in `src/styles/global.css`, organized into sections:
 
-- **Custom properties** — `--dark`, `--light`, `--mid`, light/dark gradient backgrounds
-- **Animations** — `gradient` (text), `link-underline` (anchor underlines), `lcars-stripe` (LCARS bar)
-- **Base/reset** — box-sizing, font smoothing, body constraints
-- **Typography** — heading sizes, font families
-- **Links** — animated gradient underline using `background-image` trick; suppressed on `.contacts-container a` (footer icons)
-- **Components** — `.gradient-container` (animated gradient text + LCARS left stripe), `.heading-name`, `.role`
-- **Responsive** — breakpoint at `600px`
-- **Dark mode** — `prefers-color-scheme: dark`
+-   **Custom properties** — `--dark`, `--light`, `--mid`, light/dark gradient backgrounds
+-   **Animations** — `gradient` (text), `link-underline` (anchor underlines), `lcars-stripe` (LCARS bar)
+-   **Base/reset** — box-sizing, font smoothing, body constraints
+-   **Typography** — heading sizes, font families
+-   **Links** — animated gradient underline using `background-image` trick; suppressed on `.contacts-container a` (footer icons)
+-   **Components** — `.gradient-container` (animated gradient text + LCARS left stripe), `.heading-name`, `.role`
+-   **Responsive** — breakpoint at `600px`
+-   **Dark mode** — `prefers-color-scheme: dark`
 
 ### LCARS accent
 
@@ -99,6 +100,7 @@ Footer displays a build-time stardate calculated from the TNG formula anchored t
 ---
 
 ## Local dev
+
 ```bash
 npm install
 npm run dev       # http://localhost:4321
@@ -116,9 +118,11 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 
 1. Make sure all changes are committed and pushed to `main`.
 2. Run the deploy script:
+
 ```bash
    ./deploy.sh
 ```
+
 3. It will build the site and create a timestamped `.zip` in `deploy_upload/` (gitignored), named after the most recent commit message.
 4. Log into cPanel → **File Manager** → navigate to `public_html/`.
 5. Click **Upload**, select the `.zip`, then once uploaded, right-click it → **Extract** → extract into `public_html/`.
@@ -128,20 +132,20 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 
 ### Notes
 
-- `deploy_upload/` is gitignored — zips never get committed.
-- `dist/` is also gitignored — the build output is never committed.
-- Astro config uses `output: 'static'` (default) — no server process required on the host.
-- The host (The Hosting Folks) runs its own cache layer. Always purge there first after deploying, before blaming Cloudflare.
-- Cloudflare sits in front — if the host cache is clear but site still looks stale, purge Cloudflare too.
+-   `deploy_upload/` is gitignored — zips never get committed.
+-   `dist/` is also gitignored — the build output is never committed.
+-   Astro config uses `output: 'static'` (default) — no server process required on the host.
+-   The host (The Hosting Folks) runs its own cache layer. Always purge there first after deploying, before blaming Cloudflare.
+-   Cloudflare sits in front — if the host cache is clear but site still looks stale, purge Cloudflare too.
 
 ---
 
 ## Dependencies of note
 
-| Package | Why |
-|---------|-----|
-| `astro-icon` | Icon component wrapper for Iconify icon sets |
-| `@iconify-json/ion` | Ion icon set — used for GitHub, LinkedIn, mail, Facebook, music note icons |
-| `@fontsource/albert-sans` | Body/UI font, self-hosted |
-| `@fontsource/rokkitt` | Heading font, self-hosted |
-| `prettier` | Code formatting — run manually, no pre-commit hook |
+| Package                   | Why                                                                        |
+| ------------------------- | -------------------------------------------------------------------------- |
+| `astro-icon`              | Icon component wrapper for Iconify icon sets                               |
+| `@iconify-json/ion`       | Ion icon set — used for GitHub, LinkedIn, mail, Facebook, music note icons |
+| `@fontsource/albert-sans` | Body/UI font, self-hosted                                                  |
+| `@fontsource/rokkitt`     | Heading font, self-hosted                                                  |
+| `prettier`                | Code formatting — run manually, no pre-commit hook                         |

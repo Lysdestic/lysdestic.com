@@ -47,17 +47,28 @@ const astroVersion = pkg.dependencies.astro.replace('^', '')
 
         <section class="troubleshooting">
             <h3>Troubleshooting</h3>
-            <p><strong>Site looks stale after deploy?</strong><br />
-            Clear your hosting provider's server cache first, then any CDN cache in front of it. Server cache is usually the culprit.</p>
-            <p><strong>Hard refresh</strong><br />
-            Chrome/Firefox: <code>Ctrl+Shift+R</code> — bypasses browser cache.</p>
-            <p><strong>Something broken?</strong><br />
-            <a href={email.link}>Report an issue</a></p>
+            <p>
+                <strong>Site looks stale after deploy?</strong><br />
+                Clear your hosting provider's server cache first, then any CDN cache
+                in front of it. Server cache is usually the culprit.
+            </p>
+            <p>
+                <strong>Hard refresh</strong><br />
+                Chrome/Firefox: <code>Ctrl+Shift+R</code> — bypasses browser cache.
+            </p>
+            <p>
+                <strong>Something broken?</strong><br />
+                <a href={email.link}>Report an issue</a>
+            </p>
         </section>
 
         <section class="best-viewed">
             <h3>Best Viewed</h3>
-            <p>Any modern browser. Dark mode preferred — the gradients were designed for it. If something looks off in light mode, that's a feature.</p>
+            <p>
+                Any modern browser. Dark mode preferred — the gradients were
+                designed for it. If something looks off in light mode, that's a
+                feature.
+            </p>
         </section>
     </article>
 </Layout>
@@ -81,13 +92,37 @@ const astroVersion = pkg.dependencies.astro.replace('^', '')
     set('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone)
     set('online', navigator.onLine ? 'Yes' : 'No')
     set('cookies', navigator.cookieEnabled ? 'Enabled' : 'Disabled')
-    set('localstorage', (() => { try { localStorage.setItem('t','1'); localStorage.removeItem('t'); return 'Enabled' } catch { return 'Disabled' } })())
+    set(
+        'localstorage',
+        (() => {
+            try {
+                localStorage.setItem('t', '1')
+                localStorage.removeItem('t')
+                return 'Enabled'
+            } catch {
+                return 'Disabled'
+            }
+        })(),
+    )
     set('screen', `${screen.width} × ${screen.height}`)
     set('viewport', `${window.innerWidth} × ${window.innerHeight}`)
-    set('pixelratio', `${window.devicePixelRatio}x${window.devicePixelRatio > 1 ? ' (HiDPI)' : ''}`)
+    set(
+        'pixelratio',
+        `${window.devicePixelRatio}x${window.devicePixelRatio > 1 ? ' (HiDPI)' : ''}`,
+    )
     set('colordepth', `${screen.colorDepth}-bit`)
-    set('darkmode', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Yes' : 'No')
-    set('touch', navigator.maxTouchPoints > 0 ? `Yes (${navigator.maxTouchPoints} points)` : 'No')
+    set(
+        'darkmode',
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'Yes'
+            : 'No',
+    )
+    set(
+        'touch',
+        navigator.maxTouchPoints > 0
+            ? `Yes (${navigator.maxTouchPoints} points)`
+            : 'No',
+    )
 
     const siterevEl = document.querySelector('footer p')
     const match = siterevEl?.textContent?.match(/siterev[:\s]*([\d.]+)/)

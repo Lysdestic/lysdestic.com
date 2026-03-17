@@ -18,6 +18,7 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 ---
 
 ## Project structure
+
 ```
 src/
   assets/           # Static assets (avatar, gifs)
@@ -45,14 +46,14 @@ src/
 
 ## Pages
 
-| Page          | Route     | Notes                                                              |
-| ------------- | --------- | ------------------------------------------------------------------ |
-| Home          | `/`       | "Howdy" heading, gradient hero with intro text                     |
-| Media         | `/media`  | Band links + VideoPlayer component with thumbnail cycling          |
-| About         | `/about`  | Interest grid with animated icons, random reading quote            |
-| Contact       | `/contact`| LinkedIn, GitHub, email links                                      |
-| Stats for Nerds | `/nerds`| Hidden page — client/display/build stats, troubleshooting          |
-| 404           | `/404`    | Homer backing into bushes gif                                      |
+| Page            | Route      | Notes                                                     |
+| --------------- | ---------- | --------------------------------------------------------- |
+| Home            | `/`        | "Howdy" heading, gradient hero with intro text            |
+| Media           | `/media`   | Band links + VideoPlayer component with thumbnail cycling |
+| About           | `/about`   | Interest grid with animated icons, random reading quote   |
+| Contact         | `/contact` | LinkedIn, GitHub, email links                             |
+| Stats for Nerds | `/nerds`   | Hidden page — client/display/build stats, troubleshooting |
+| 404             | `/404`     | Homer backing into bushes gif                             |
 
 All pages use `Layout.astro`. Pages with a visible heading pass `includeHeading` and `subtitle` props — the subtitle becomes the `<h1>` and the browser tab title.
 
@@ -82,6 +83,7 @@ On every page load, the `<h1>` fades in over 2s and the `.gradient-container` co
 ### Stardate / siterev
 
 The footer displays a build-time stardate using the TNG formula anchored to the TNG premiere date (July 15, 1987):
+
 ```
 (((now - epoch) / 1000 / 3155.76) + 410000) / 10
 ```
@@ -96,12 +98,12 @@ In local dev (`npm run dev`), `PUBLIC_STARDATE` is not set and the footer displa
 
 ## Data files
 
-| File                   | Purpose                                              |
-| ---------------------- | ---------------------------------------------------- |
-| `contactLinks.ts`      | Social/contact links used in footer and contact page |
-| `mediaLinks.ts`        | Band links and metadata for the media page           |
-| `quotes.ts`            | Reading quotes — one is picked randomly at build time and shown on the About page |
-| `site.ts`              | Site-level config: host provider name, CDN name      |
+| File              | Purpose                                                                           |
+| ----------------- | --------------------------------------------------------------------------------- |
+| `contactLinks.ts` | Social/contact links used in footer and contact page                              |
+| `mediaLinks.ts`   | Band links and metadata for the media page                                        |
+| `quotes.ts`       | Reading quotes — one is picked randomly at build time and shown on the About page |
+| `site.ts`         | Site-level config: host provider name, CDN name                                   |
 
 To add a quote, append an entry to `quotes.ts` with `text`, `source`, and `author` fields. Quotes marked with `⚠️ VERIFY` in comments should be fact-checked before deploying.
 
@@ -124,7 +126,8 @@ To add a quote, append an entry to `quotes.ts` with `text`, `source`, and `autho
 ### Adding a video to the media player
 
 Add an entry to the `videos` array in `src/pages/media.astro`:
-```astro
+
+```
 { id: 'YOUTUBE_VIDEO_ID', title: 'Band - Song Title' }
 ```
 
@@ -138,6 +141,7 @@ Add an entry to the `videos` array in `src/pages/media.astro`:
 ---
 
 ## Local dev
+
 ```bash
 npm install
 npm run dev       # http://localhost:4321
@@ -156,6 +160,7 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 
 1. Make sure all changes are committed and pushed to `main`.
 2. Run the deploy script:
+
 ```bash
 ./deploy.sh
 ```
@@ -167,6 +172,7 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 7. In cPanel, purge the host's cache.
 8. In Cloudflare, purge cache if still stale (Caching → Purge Everything, or via API).
 9. Commit the `package.json` version bump:
+
 ```bash
 git add package.json
 git commit -m "siterev $(node -p "require('./package.json').version")"
@@ -186,6 +192,7 @@ git push
 ## robots.txt
 
 A `robots.txt` is maintained in `public_html/` on the server (not committed to the repo since it lives outside the build output). It disallows crawling of `/nerds/` to keep the hidden stats page out of search indexes:
+
 ```
 User-agent: *
 Disallow: /nerds/
@@ -195,13 +202,13 @@ Disallow: /nerds/
 
 ## Dependencies of note
 
-| Package                   | Why                                                                          |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| `astro-icon`              | Icon component wrapper for Iconify icon sets                                 |
-| `@iconify-json/ion`       | Ion icon set — GitHub, LinkedIn, mail, Facebook, music note icons in footer  |
-| `@iconify-json/mdi`       | MDI icon set — interest icons on About page                                  |
-| `@iconify-json/simple-icons` | Simple Icons set — openSUSE, Star Trek icons on About page              |
-| `@fontsource/albert-sans` | Body/UI font, self-hosted                                                    |
-| `@fontsource/rokkitt`     | Heading font, self-hosted                                                    |
-| `prettier`                | Code formatting — run with `npm run format`                                  |
-| `prettier-plugin-astro`   | Enables Prettier to format `.astro` files                                    |
+| Package                      | Why                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| `astro-icon`                 | Icon component wrapper for Iconify icon sets                                |
+| `@iconify-json/ion`          | Ion icon set — GitHub, LinkedIn, mail, Facebook, music note icons in footer |
+| `@iconify-json/mdi`          | MDI icon set — interest icons on About page                                 |
+| `@iconify-json/simple-icons` | Simple Icons set — openSUSE, Star Trek icons on About page                  |
+| `@fontsource/albert-sans`    | Body/UI font, self-hosted                                                   |
+| `@fontsource/rokkitt`        | Heading font, self-hosted                                                   |
+| `prettier`                   | Code formatting — run with `npm run format`                                 |
+| `prettier-plugin-astro`      | Enables Prettier to format `.astro` files                                   |

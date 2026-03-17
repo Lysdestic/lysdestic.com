@@ -18,7 +18,6 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 ---
 
 ## Project structure
-
 ```
 src/
   assets/         # Static assets (avatar, gifs)
@@ -70,9 +69,18 @@ Everything lives in `src/styles/global.css`, organized into sections:
 
 `.gradient-container` gets a 4px animated left border stripe via `::before`, cycling through the same purple/blue palette as the text gradient. Used on the homepage hero, media article, contact article, and 404 article.
 
-### Stardate
+### Stardate / siterev
 
-Footer displays a build-time stardate calculated from the TNG formula anchored to the TNG premiere date (July 15, 1987). Formula: `(((now - epoch) / 1000 / 3155.76) + 410000) / 10`. Reference: [trekguide.com/Stardates.htm](https://trekguide.com/Stardates.htm).
+The footer displays a build-time stardate using the TNG formula anchored to the TNG premiere date (July 15, 1987):
+```
+(((now - epoch) / 1000 / 3155.76) + 410000) / 10
+```
+
+Reference: [trekguide.com/Stardates.htm](https://trekguide.com/Stardates.htm)
+
+The stardate is calculated once in `deploy.sh` at deploy time and passed to the Astro build as `PUBLIC_STARDATE`. `package.json` version is also set to the stardate on each deploy — an unorthodox but intentional versioning scheme that makes the version human-readable and traceable to a specific deploy moment.
+
+In local dev (`npm run dev`), `PUBLIC_STARDATE` is not set and the footer displays `siterev dev` as a fallback.
 
 ---
 
@@ -100,12 +108,12 @@ Footer displays a build-time stardate calculated from the TNG formula anchored t
 ---
 
 ## Local dev
-
 ```bash
 npm install
 npm run dev       # http://localhost:4321
 npm run build     # builds to dist/
 npm run preview   # preview the build locally
+npm run format    # run prettier across all files
 ```
 
 ---
@@ -118,24 +126,29 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 
 1. Make sure all changes are committed and pushed to `main`.
 2. Run the deploy script:
-
 ```bash
-   ./deploy.sh
+./deploy.sh
 ```
 
-3. It will build the site and create a timestamped `.zip` in `deploy_upload/` (gitignored), named after the most recent commit message.
+3. It will calculate the current stardate, write it to `package.json` as the version, build the site, and create a timestamped `.zip` in `deploy_upload/` (gitignored), named after the most recent commit message.
 4. Log into cPanel → **File Manager** → navigate to `public_html/`.
 5. Click **Upload**, select the `.zip`, then once uploaded, right-click it → **Extract** → extract into `public_html/`.
 6. Delete the `.zip` from the server after extracting.
-7. In cPanel, purge the host's cache if available.
-8. In Cloudflare, purge cache if needed (Caching → Purge Everything, or via API).
+7. In cPanel, purge the host's cache.
+8. In Cloudflare, purge cache if still stale (Caching → Purge Everything, or via API).
+9. Commit the `package.json` version bump:
+```bash
+git add package.json
+git commit -m "siterev $(node -p "require('./package.json').version")"
+git push
+```
 
 ### Notes
 
 -   `deploy_upload/` is gitignored — zips never get committed.
 -   `dist/` is also gitignored — the build output is never committed.
 -   Astro config uses `output: 'static'` (default) — no server process required on the host.
--   The host (The Hosting Folks) runs its own cache layer. Always purge there first after deploying, before blaming Cloudflare.
+-   The host (The Hosting Folks) runs its own cache layer. **Always purge there first** after deploying, before touching Cloudflare.
 -   Cloudflare sits in front — if the host cache is clear but site still looks stale, purge Cloudflare too.
 
 ---
@@ -148,4 +161,5 @@ This site builds to static files via Astro and is manually deployed to cPanel sh
 | `@iconify-json/ion`       | Ion icon set — used for GitHub, LinkedIn, mail, Facebook, music note icons |
 | `@fontsource/albert-sans` | Body/UI font, self-hosted                                                  |
 | `@fontsource/rokkitt`     | Heading font, self-hosted                                                  |
-| `prettier`                | Code formatting — run manually, no pre-commit hook                         |
+| `prettier`                | Code formatting — run with `npm run format`                                |
+| `prettier-plugin-astro`   | Enables Prettier to format `.astro` files                                  |

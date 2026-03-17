@@ -1,6 +1,6 @@
 # lysdestic.com
 
-A personal landing page built with [Astro](https://astro.build), inspired by a friend's design. Hosted on shared cPanel hosting behind Cloudflare.
+A personal landing page built with [Astro](https://astro.build). Hosted on shared cPanel hosting behind Cloudflare.
 
 ![Homepage screenshot](docs/homepage.png)
 

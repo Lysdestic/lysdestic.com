@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { siteConfig } from '../data/site'
+import { contactLinks } from '../data/contactLinks'
+import pkg from '../../package.json'
+
+const { email } = contactLinks
+const astroVersion = pkg.dependencies.astro.replace('^', '')
+---
+
+<Layout includeHeading subtitle=".nerdstats">
+    <article class="gradient-container">
+        <section class="stats-grid">
+            <div class="stat-group">
+                <h3>Client</h3>
+                <dl>
+                    <dt>Browser</dt><dd id="browser">—</dd>
+                    <dt>Platform</dt><dd id="platform">—</dd>
+                    <dt>Language</dt><dd id="language">—</dd>
+                    <dt>Timezone</dt><dd id="timezone">—</dd>
+                    <dt>Online</dt><dd id="online">—</dd>
+                    <dt>Cookies</dt><dd id="cookies">—</dd>
+                    <dt>localStorage</dt><dd id="localstorage">—</dd>
+                </dl>
+            </div>
+            <div class="stat-group">
+                <h3>Display</h3>
+                <dl>
+                    <dt>Screen</dt><dd id="screen">—</dd>
+                    <dt>Viewport</dt><dd id="viewport">—</dd>
+                    <dt>Pixel Ratio</dt><dd id="pixelratio">—</dd>
+                    <dt>Color Depth</dt><dd id="colordepth">—</dd>
+                    <dt>Dark Mode</dt><dd id="darkmode">—</dd>
+                    <dt>Touch</dt><dd id="touch">—</dd>
+                </dl>
+            </div>
+            <div class="stat-group">
+                <h3>Build</h3>
+                <dl>
+                    <dt>Siterev</dt><dd id="siterev">—</dd>
+                    <dt>Astro</dt><dd>{astroVersion}</dd>
+                    <dt>Host</dt><dd>{siteConfig.host}</dd>
+                    <dt>CDN</dt><dd>{siteConfig.cdn}</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="troubleshooting">
+            <h3>Troubleshooting</h3>
+            <p><strong>Site looks stale after deploy?</strong><br />
+            Clear your hosting provider's server cache first, then any CDN cache in front of it. Server cache is usually the culprit.</p>
+            <p><strong>Hard refresh</strong><br />
+            Chrome/Firefox: <code>Ctrl+Shift+R</code> — bypasses browser cache.</p>
+            <p><strong>Something broken?</strong><br />
+            <a href={email.link}>Report an issue</a></p>
+        </section>
+
+        <section class="best-viewed">
+            <h3>Best Viewed</h3>
+            <p>Any modern browser. Dark mode preferred — the gradients were designed for it. If something looks off in light mode, that's a feature.</p>
+        </section>
+    </article>
+</Layout>
+
+<script>
+    const set = (id: string, val: string) => {
+        const el = document.getElementById(id)
+        if (el) el.textContent = val
+    }
+
+    const ua = navigator.userAgent
+    let browser = 'Unknown'
+    if (ua.includes('Firefox')) browser = 'Firefox'
+    else if (ua.includes('Edg')) browser = 'Edge'
+    else if (ua.includes('Chrome')) browser = 'Chrome'
+    else if (ua.includes('Safari')) browser = 'Safari'
+
+    set('browser', browser)
+    set('platform', navigator.platform || 'Unknown')
+    set('language', navigator.language)
+    set('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone)
+    set('online', navigator.onLine ? 'Yes' : 'No')
+    set('cookies', navigator.cookieEnabled ? 'Enabled' : 'Disabled')
+    set('localstorage', (() => { try { localStorage.setItem('t','1'); localStorage.removeItem('t'); return 'Enabled' } catch { return 'Disabled' } })())
+    set('screen', `${screen.width} × ${screen.height}`)
+    set('viewport', `${window.innerWidth} × ${window.innerHeight}`)
+    set('pixelratio', `${window.devicePixelRatio}x${window.devicePixelRatio > 1 ? ' (HiDPI)' : ''}`)
+    set('colordepth', `${screen.colorDepth}-bit`)
+    set('darkmode', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Yes' : 'No')
+    set('touch', navigator.maxTouchPoints > 0 ? `Yes (${navigator.maxTouchPoints} points)` : 'No')
+
+    const siterevEl = document.querySelector('footer p')
+    const match = siterevEl?.textContent?.match(/siterev[:\s]*([\d.]+)/)
+    set('siterev', match ? match[1] : 'dev')
+</script>
+
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-group h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: hsl(271, 44%, 63%);
+        -webkit-text-fill-color: hsl(271, 44%, 63%);
+        margin-bottom: 0.75rem;
+        padding: 0;
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.25rem 1rem;
+        margin: 0;
+    }
+
+    dt {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        -webkit-text-fill-color: unset;
+    }
+
+    dd {
+        font-size: 0.8rem;
+        margin: 0;
+        font-family: monospace;
+        -webkit-text-fill-color: unset;
+    }
+
+    .troubleshooting,
+    .best-viewed {
+        margin-top: 2rem;
+        border-top: 1px solid var(--mid);
+        padding-top: 1.5rem;
+    }
+
+    .troubleshooting h3,
+    .best-viewed h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: hsl(271, 44%, 63%);
+        -webkit-text-fill-color: hsl(271, 44%, 63%);
+        margin-bottom: 0.75rem;
+        padding: 0;
+    }
+
+    .troubleshooting p,
+    .best-viewed p {
+        font-size: 0.9rem;
+        font-style: normal;
+        -webkit-text-fill-color: unset;
+        margin-bottom: 1rem;
+    }
+
+    code {
+        font-family: monospace;
+        font-size: 0.85rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.1rem 0.3rem;
+        border-radius: 2px;
+    }
+</style>

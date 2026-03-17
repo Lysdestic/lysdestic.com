@@ -118,6 +118,10 @@ h1 {
     font-size: 4.5rem;
 }
 
+h2 {
+    font-size: 3.5rem;
+}
+
 h1,
 h2,
 h3,
@@ -233,6 +237,10 @@ address:active {
     }
 
     h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
         font-size: 6rem;
     }
 

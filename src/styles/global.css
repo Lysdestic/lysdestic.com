@@ -137,6 +137,11 @@ address:active {
   padding-left: 1.25rem;
 }
 
+.contacts-container a {
+  background-image: none;
+  animation: none;
+}
+
 .gradient-container::before {
   content: '';
   position: absolute;

@@ -4,7 +4,7 @@ import LinkNewTab from './LinkNewTab.astro'
 import { Icon } from 'astro-icon/components'
 import { contactLinks } from '../../data/contactLinks'
 
-const stardate = import.meta.env.PUBLIC_STARDATE
+const stardate = import.meta.env.PUBLIC_STARDATE ?? 'dev'
 
 const { linkedIn, github, email, lastfm, facebook } = contactLinks
 ---

@@ -11,11 +11,19 @@ const stardate = (() => {
   return (((now - epoch) / 1000 / 3155.76) + 410000) / 10
 })().toFixed(1)
 
-const { linkedIn, github, email } = contactLinks
+const { linkedIn, github, email, lastfm, facebook } = contactLinks
 ---
 
 <footer>
 <p>Built using Astro by Lysdestic in Portland, OR<br />siterev {stardate}</p>  <div class="contacts-container">
+    <LinkNewTab link={lastfm.link}>
+      <Icon name="ion:musical-notes" aria-label="Last.fm" />
+    </LinkNewTab>
+
+    <LinkNewTab link={facebook.link}>
+     <Icon name="ion:logo-facebook" aria-label="Facebook" />
+    </LinkNewTab>
+
     <LinkNewTab link={github.link}>
       <Icon name="ion:logo-github" aria-label={github.label} />
     </LinkNewTab>

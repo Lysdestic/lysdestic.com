@@ -14,4 +14,14 @@ export const contactLinks = {
     link: 'mailto:admin@lysdestic.com',
     text: 'admin@lysdestic.com',
   },
+  lastfm: {
+    label: 'Lysdestic on Last.fm',
+    link: 'https://www.last.fm/user/lysdestic',
+    text: 'Last.fm',
+  },
+  facebook: {
+    label: 'Lysdestic on Facebook',
+    link: 'https://www.facebook.com/lysdestic',
+    text: 'Facebook',
+  },
 }

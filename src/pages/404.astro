@@ -3,9 +3,11 @@ import Layout from '../layouts/Layout.astro'
 import Homer from '../assets/gifs/transparent-homer-bush.gif'
 ---
 
-<Layout>
-  <h1>D'oh!</h1>
-  <center></center>
-  <p><img src={Homer.src}><br /><br />
-  There's nothing for you here, try going <a href="/">home.</a></p>
+<Layout includeHeading subtitle="D'oh!">
+  <article class="gradient-container">
+    <p>
+      <img src={Homer.src} /><br /><br />
+      There's nothing for you here, try going <a href="/">home.</a>
+    </p>
+  </article>
 </Layout>

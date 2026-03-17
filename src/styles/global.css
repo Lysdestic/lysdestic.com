@@ -78,6 +78,26 @@
     }
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(3.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* ============================================================
    BASE / RESET
    ============================================================ */
@@ -115,11 +135,12 @@ body {
    TYPOGRAPHY
    ============================================================ */
 h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
+    animation: fade-in 2s ease-out 0.1s both;
 }
 
 h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 h1,
@@ -192,11 +213,13 @@ address:active {
     );
     background-size: 300% 200%;
     background-clip: text;
-    animation: gradient 20s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--dark);
     position: relative;
     padding-left: 1.25rem;
+    animation:
+        gradient 20s ease infinite,
+        slide-in-right 1.5s ease-out 0.1s both;
 }
 
 .gradient-container::before {
@@ -237,11 +260,11 @@ address:active {
     }
 
     h1 {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 
     h2 {
-        font-size: 6rem;
+        font-size: 3.5rem;
     }
 
     .intro {

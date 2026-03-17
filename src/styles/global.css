@@ -137,6 +137,23 @@ address:active {
   animation: gradient 20s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: var(--dark);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.gradient-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    hsl(271, 44%, 63%),
+    hsl(202, 84%, 40%)
+  );
+  border-radius: 2px;
 }
 
 .heading-greeting {
@@ -163,11 +180,12 @@ address:active {
   .gradient-container {
     -webkit-text-fill-color: var(--light);
   }
+
   html {
     background-image: var(--dark-gradient);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: hsl(221deg 100% 9%);
     color: var(--light);
-    }
   }
+}

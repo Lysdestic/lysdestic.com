@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Layout includeHeading subtitle="About">
+    <article class="gradient-container">
+        <table class="interests">
+            <tr>
+                <td>
+                    <Icon name="mdi:music" aria-label="Music" />
+                    <h3>Music</h3>
+                    <p>
+                        Playing in bands since I was 16, cutting my teeth in
+                        Nashville and rocking the PDX punk scene since 2013.
+                    </p>
+                </td>
+                <td>
+                    <Icon name="mdi:music-clef-bass" aria-label="Bass Guitar" />
+                    <h3>Bass Guitar</h3>
+                    <p>Holding down the low-end for 20 years and counting.</p>
+                </td>
+                <td>
+                    <Icon name="simple-icons:opensuse" aria-label="Linux" />
+                    <h3>Linux</h3>
+                    <p>Avid Linux user since 2003, preferably openSUSE.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <Icon
+                        name="mdi:microsoft-xbox-controller"
+                        aria-label="Video Games"
+                    />
+                    <h3>Video Games</h3>
+                    <p>
+                        Playing and breaking video games on a platform near you.
+                    </p>
+                </td>
+                <td>
+                    <Icon name="simple-icons:startrek" aria-label="Star Trek" />
+                    <h3>Star Trek</h3>
+                    <p>Live long and prosper, y'all.</p>
+                </td>
+                <td>
+                    <Icon
+                        name="mdi:book-open-page-variant"
+                        aria-label="Reading"
+                    />
+                    <h3>Reading</h3>
+                    <p>Love to read, love to write.</p>
+                </td>
+            </tr>
+        </table>
+    </article>
+</Layout>
+
+<style>
+    svg[data-icon] {
+        font-size: 5rem;
+        color: hsl(271, 44%, 63%);
+        animation: icon-hue 20s ease infinite;
+    }
+
+    @keyframes icon-hue {
+        0% {
+            color: hsl(300, 82%, 44%);
+        }
+        25% {
+            color: hsl(271, 44%, 63%);
+        }
+        50% {
+            color: hsl(202, 84%, 40%);
+        }
+        75% {
+            color: hsl(271, 44%, 63%);
+        }
+        100% {
+            color: hsl(300, 82%, 44%);
+        }
+    }
+
+    .interests {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .interests td {
+        padding: 1.5rem 1rem;
+        vertical-align: top;
+        width: 33%;
+        text-align: center;
+    }
+
+    .interests h3 {
+        margin: 0.5rem 0 0.25rem;
+        padding: 0;
+        font-size: 1.5rem;
+        -webkit-text-fill-color: unset;
+    }
+
+    .interests p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-style: italic;
+        -webkit-text-fill-color: unset;
+    }
+
+    @media screen and (max-width: 600px) {
+        .interests tr {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .interests td {
+            width: 100%;
+        }
+    }
+</style>

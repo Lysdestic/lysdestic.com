@@ -11,6 +11,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@astrojs/sitemap": "^3.7.1",
         "@fontsource/albert-sans": "^4.5.2",
         "@fontsource/rokkitt": "^4.5.12",
         "@iconify-json/ion": "^1.2.7",

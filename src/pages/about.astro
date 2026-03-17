@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { quotes } from '../data/quotes'
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+const randomQuote =
+    quotes[Math.floor(Math.random() * quotes.length)] ?? quotes[0]!
 ---
 
 <Layout includeHeading subtitle="About">
@@ -42,13 +43,15 @@ const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
                     />
                     <h3>Video Games</h3>
                     <p>
-                        Playing and breaking video games on a platform near you.
+                        Playing, modding, and breaking video games on a platform
+                        near you.
                     </p>
                 </td>
                 <td>
                     <Icon name="simple-icons:startrek" aria-label="Star Trek" />
                     <h3>Star Trek</h3>
-                    <p>Live long and prosper, y'all.<br /><h3>🖖</h3></p>
+                    <p>Live long and prosper, y'all.</p>
+                    <p class="salute">🖖</p>
                 </td>
                 <td>
                     <Icon
@@ -89,6 +92,10 @@ const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
         }
     }
 
+    .interests .salute {
+        font-style: normal;
+        font-size: 2rem;
+    }
     .quote-source {
         font-size: 0.75rem;
         margin-top: 0.25rem;

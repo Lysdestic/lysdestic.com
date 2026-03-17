@@ -4,87 +4,95 @@ import LinkNewTab from './LinkNewTab.astro'
 import { Icon } from 'astro-icon/components'
 import { contactLinks } from '../../data/contactLinks'
 
-const { linkedIn, github, email } = contactLinks
+const stardate = import.meta.env.PUBLIC_STARDATE ?? 'dev'
+
+const { linkedIn, github, email, lastfm, facebook } = contactLinks
 ---
 
 <footer>
-  <p>Built using Astro by Travis Wilson in Portland, OR<br />featuring inspiration from <a href="https://jlaurent.dev">@jlaurentpdx</a></p>
-  <div class="contacts-container">
-    <LinkNewTab link={github.link}>
-      <Icon name="ion:logo-github" aria-label={github.label} />
-    </LinkNewTab>
-
-    <LinkNewTab link={linkedIn.link}>
-      <Icon name="ion:logo-linkedin" aria-label={linkedIn.label} />
-    </LinkNewTab>
-
-    <LinkNewTab link={email.link}>
-      <Icon name="ion:mail" aria-label={email.label} />
-    </LinkNewTab>
-
-    <!-- <Email>
+    <p>
+        Built using <a href="https://astro.build">Astro</a> by Lysdestic in Portland,
+        OR<br />siterev {stardate}
+    </p>
+    <div class="contacts-container">
+        <LinkNewTab link={lastfm.link}>
+            <Icon name="ion:musical-notes" aria-label={lastfm.label} />
+        </LinkNewTab>
+        <LinkNewTab link={facebook.link}>
+            <Icon name="ion:logo-facebook" aria-label={facebook.label} />
+        </LinkNewTab>
+        <LinkNewTab link={github.link}>
+            <Icon name="ion:logo-github" aria-label={github.label} />
+        </LinkNewTab>
+        <LinkNewTab link={linkedIn.link}>
+            <Icon name="ion:logo-linkedin" aria-label={linkedIn.label} />
+        </LinkNewTab>
+        <LinkNewTab link={email.link}>
+            <Icon name="ion:mail" aria-label={email.label} />
+        </LinkNewTab>
+        <!-- <Email>
       <Icon name="ion:mail" />
     </Email> -->
-  </div>
+    </div>
 </footer>
 
 <style>
-  [data-icon] {
-    font-size: 2rem;
-    color: var(--dark);
-  }
+    [data-icon] {
+        font-size: 2rem;
+        color: var(--dark);
+    }
 
-  .contacts-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    font-size: 0;
-    height: 2rem;
-  }
+    .contacts-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        font-size: 0;
+        height: 2rem;
+    }
 
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    padding: 2rem 0;
-    text-align: center;
-  }
-
-  footer p {
-    display: block;
-    width: 80%;
-    margin: 0;
-    padding-top: 2rem;
-    font-size: .8rem;
-    color: var(--mid);
-    line-height: 1.5;
-    border-top-color: var(--mid);
-    border-top-style: solid;
-    border-top-width: 1px;
-  }
-
-  @media screen and (min-width: 600px) {
     footer {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        padding: 2rem 0;
+        text-align: center;
     }
 
     footer p {
-      width: 50%;
-      padding-top: 0;
-      font-size: 1rem;
-      font-style: italic;
-      border-top-width: 0px;
+        display: block;
+        width: 80%;
+        margin: 0;
+        padding-top: 2rem;
+        font-size: 0.8rem;
+        color: var(--mid);
+        line-height: 1.5;
+        border-top-color: var(--mid);
+        border-top-style: solid;
+        border-top-width: 1px;
     }
-  }
 
-  @media (prefers-color-scheme: dark) {
-    [data-icon] {
-      color: var(--light);
+    @media screen and (min-width: 600px) {
+        footer {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        footer p {
+            width: 50%;
+            padding-top: 0;
+            font-size: 1rem;
+            font-style: italic;
+            border-top-width: 0px;
+        }
     }
-  }
+
+    @media (prefers-color-scheme: dark) {
+        [data-icon] {
+            color: var(--light);
+        }
+    }
 </style>

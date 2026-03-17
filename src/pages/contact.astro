@@ -8,12 +8,13 @@ const { linkedIn, github } = contactLinks
 ---
 
 <Layout includeHeading subtitle="Contact">
-  <section id="contact">
-    <article>
-      You can reach me on
-      <LinkNewTab {...linkedIn} />, check out my open-source projects and contributions on
-      <LinkNewTab {...github} />, or email me any time at
-      <Email>admin@lysdestic.com</Email>.
-    </article>
-  </section>
+    <section id="contact">
+        <article class="gradient-container">
+            You can reach me on
+            <span class="role"><LinkNewTab {...linkedIn} /></span>, check out my open-source projects and
+            contributions on
+            <span class="role"><LinkNewTab {...github} /></span>, or email me any time at
+            <span class="role"><Email>admin@lysdestic.com</Email></span>.
+        </article>
+    </section>
 </Layout>

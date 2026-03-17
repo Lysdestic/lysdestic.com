@@ -1,71 +1,125 @@
+/* ============================================================
+   CUSTOM PROPERTIES
+   ============================================================ */
 :root {
-  --dark: hsl(216, 23%, 23%);
-  --light: hsl(0, 0%, 98%);
-  --mid: hsl(0, 0%, 70%);
-  --light-gradient: linear-gradient(
-    90deg,
-    hsl(216deg 24% 96%) 0%,
-    hsl(216deg 24% 97%) 2%,
-    hsl(216deg 24% 98%) 5%,
-    hsl(216deg 24% 99%) 8%,
-    hsl(300deg 25% 98%) 13%,
-    hsl(300deg 25% 98%) 19%,
-    hsl(300deg 25% 98%) 30%,
-    hsl(300deg 25% 98%) 53%,
-    hsl(300deg 25% 98%) 76%,
-    hsl(300deg 25% 98%) 85%,
-    hsl(300deg 25% 98%) 91%,
-    hsl(216deg 24% 99%) 94%,
-    hsl(216deg 24% 98%) 97%,
-    hsl(216deg 24% 97%) 99%,
-    hsl(216deg 24% 96%) 100%
-  );
-  --dark-gradient: linear-gradient(
-    15deg,
-    hsl(257deg 100% 8%) 0%,
-    hsl(258deg 100% 9%) 21%,
-    hsl(260deg 100% 10%) 30%,
-    hsl(262deg 100% 11%) 37%,
-    hsl(262deg 100% 13%) 44%,
-    hsl(261deg 100% 15%) 50%,
-    hsl(261deg 100% 16%) 56%,
-    hsl(262deg 100% 17%) 62%,
-    hsl(264deg 100% 18%) 68%,
-    hsl(265deg 100% 18%) 75%,
-    hsl(269deg 100% 18%) 83%,
-    hsl(273deg 100% 18%) 91%,
-    hsl(277deg 100% 18%) 100%
-  );
+    --dark: hsl(216, 23%, 23%);
+    --light: hsl(0, 0%, 98%);
+    --mid: hsl(300, 1%, 42%);
+    --light-gradient: linear-gradient(
+        15deg,
+        hsl(264deg 12% 84%) 0%,
+        hsl(268deg 18% 83%) 8%,
+        hsl(272deg 24% 83%) 17%,
+        hsl(277deg 28% 82%) 25%,
+        hsl(276deg 26% 81%) 34%,
+        hsl(275deg 24% 79%) 42%,
+        hsl(274deg 22% 78%) 51%,
+        hsl(276deg 21% 76%) 59%,
+        hsl(278deg 20% 74%) 68%,
+        hsl(280deg 19% 72%) 76%,
+        hsl(272deg 20% 71%) 84%,
+        hsl(263deg 22% 71%) 92%,
+        hsl(255deg 23% 70%) 100%
+    );
+    --dark-gradient: linear-gradient(
+        15deg,
+        hsl(257deg 100% 8%) 0%,
+        hsl(258deg 100% 9%) 21%,
+        hsl(260deg 100% 10%) 30%,
+        hsl(262deg 100% 11%) 37%,
+        hsl(262deg 100% 13%) 44%,
+        hsl(261deg 100% 15%) 50%,
+        hsl(261deg 100% 16%) 56%,
+        hsl(262deg 100% 17%) 62%,
+        hsl(264deg 100% 18%) 68%,
+        hsl(265deg 100% 18%) 75%,
+        hsl(269deg 100% 18%) 83%,
+        hsl(273deg 100% 18%) 91%,
+        hsl(277deg 100% 18%) 100%
+    );
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes gradient {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes link-underline {
+    0% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes lcars-stripe {
+    0% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
+}
+
+/* ============================================================
+   BASE / RESET
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    line-height: calc(1em + 0.725rem);
+    -webkit-font-smoothing: antialiased;
 }
 
 html {
-  height: 100%;
-  background-image: var(--light-gradient);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: var(--dark);
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-  line-height: calc(1em + 0.725rem);
-  -webkit-font-smoothing: antialiased;
+    height: 100%;
+    background-image: var(--light-gradient);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--dark);
+    scroll-behavior: smooth;
 }
 
 body {
-  width: 100%;
-  max-width: 80ch;
-  margin: 0 auto;
-  padding: 1rem;
-  color: inherit;
-  font-family: Segoe UI, Tahoma, Verdana, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+    width: 100%;
+    max-width: 80ch;
+    margin: 0 auto;
+    padding: 1rem;
+    color: inherit;
+    font-family:
+        Segoe UI,
+        Tahoma,
+        Verdana,
+        sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 h1 {
-  font-size: 4.5rem;
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-size: 3.5rem;
 }
 
 h1,
@@ -74,23 +128,35 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  padding: 1rem 0;
-  font-family: Georgia, Times, 'Times New Roman', serif;
-  font-weight: 400;
+    margin: 0;
+    padding: 1rem 0;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
 }
 
 p,
 a,
 address,
 article {
-  color: inherit;
-  font-size: inherit;
+    color: inherit;
+    font-size: inherit;
 }
 
+/* ============================================================
+   LINKS
+   ============================================================ */
 a {
-  text-decoration-color: var(--mid);
-  text-underline-offset: 0.25rem;
+    text-decoration: none;
+    background-image: linear-gradient(
+        90deg,
+        hsl(300, 50%, 60%),
+        hsl(271, 40%, 65%),
+        hsl(202, 50%, 60%)
+    );
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    background-size: 200% 1px;
+    animation: link-underline 20s ease infinite;
 }
 
 a:hover,
@@ -99,33 +165,108 @@ a:active,
 address:hover,
 address:focus,
 address:active {
-  outline-color: inherit;
-  outline-style: solid;
-  outline-width: 2px;
-  outline-offset: 1px;
-  border-radius: 2px;
+    outline-color: inherit;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 1px;
+    border-radius: 2px;
 }
 
+.contacts-container a {
+    background-image: none;
+    animation: none;
+}
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+
+/* LCARS gradient text + stripe */
+.gradient-container {
+    background: linear-gradient(
+        320deg,
+        hsl(300, 82%, 44%),
+        hsl(300, 72%, 47%),
+        hsl(271, 44%, 63%),
+        hsl(202, 84%, 40%)
+    );
+    background-size: 300% 200%;
+    background-clip: text;
+    animation: gradient 20s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--dark);
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.gradient-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 4px;
+    background: linear-gradient(
+        180deg,
+        hsl(300, 82%, 44%),
+        hsl(300, 72%, 47%),
+        hsl(271, 44%, 63%),
+        hsl(202, 84%, 40%)
+    );
+    background-size: 100% 300%;
+    animation: lcars-stripe 20s ease infinite;
+    border-radius: 2px;
+}
+
+/* Homepage heading */
+.heading-greeting {
+    display: block;
+}
+
+.heading-name,
+.role {
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media screen and (min-width: 600px) {
-  body {
-    font-size: 1.3rem;
-  }
+    body {
+        font-size: 1.3rem;
+    }
 
-  a {
-    text-decoration-style: dotted;
-  }
+    h1 {
+        font-size: 6rem;
+    }
 
-  h1 {
-    font-size: 6rem;
-  }
+    h2 {
+        font-size: 6rem;
+    }
+
+    .intro {
+        font-size: 6rem;
+    }
+
+    .heading-name,
+    .role {
+        font-weight: 800;
+    }
 }
 
+/* ============================================================
+   DARK MODE
+   ============================================================ */
 @media (prefers-color-scheme: dark) {
-  html {
-    background-image: var(--dark-gradient);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: hsl(221deg 100% 9%);
-    color: var(--light);
-  }
+    html {
+        background-image: var(--dark-gradient);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: hsl(221deg 100% 9%);
+        color: var(--light);
+    }
+
+    .gradient-container {
+        -webkit-text-fill-color: var(--light);
+    }
 }

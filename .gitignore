@@ -25,5 +25,5 @@ pnpm-debug.log*
 # files that may or may not return from the abyss
 .archive
 
-#other
-.netlify
+# deploy artifacts
+deploy_upload/

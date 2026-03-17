@@ -1,8 +1,0 @@
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256">
-  <g>
-    <path class="stroke base" d="M60,240L440,240"></path>
-    <path class="stroke left-fill" d="M440,240L45,240L240,40L240,210L210,240"></path>
-    <path class="stroke right-fill" d="M210,240L440,10L440,240"></path>
-  </g>
-</svg>

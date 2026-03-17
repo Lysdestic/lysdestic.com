@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
+import { quotes } from '../data/quotes'
+const randomQuote =
+    quotes[Math.floor(Math.random() * quotes.length)] ?? quotes[0]!
 ---
 
 <Layout includeHeading subtitle="About">
@@ -11,19 +14,25 @@ import { Icon } from 'astro-icon/components'
                     <Icon name="mdi:music" aria-label="Music" />
                     <h3>Music</h3>
                     <p>
-                        Playing in bands since I was 16, cutting my teeth in
-                        Nashville and rocking the PDX punk scene since 2013.
+                        Punk, folk, country, indie, hip-hop, indie, metal, jazz,
+                        musack, etc, etc.
                     </p>
                 </td>
                 <td>
                     <Icon name="mdi:music-clef-bass" aria-label="Bass Guitar" />
                     <h3>Bass Guitar</h3>
-                    <p>Holding down the low-end for 20 years and counting.</p>
+                    <p>
+                        20+ years experienced bassist; rocking the PDX punk
+                        scene since 2013.
+                    </p>
                 </td>
                 <td>
                     <Icon name="simple-icons:opensuse" aria-label="Linux" />
                     <h3>Linux</h3>
-                    <p>Avid Linux user since 2003, preferably openSUSE.</p>
+                    <p>
+                        Avid Linux user since 2003, preferably openSUSE. Homelab
+                        enthusiast.
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -34,13 +43,15 @@ import { Icon } from 'astro-icon/components'
                     />
                     <h3>Video Games</h3>
                     <p>
-                        Playing and breaking video games on a platform near you.
+                        Playing, modding, and breaking video games on a platform
+                        near you.
                     </p>
                 </td>
                 <td>
                     <Icon name="simple-icons:startrek" aria-label="Star Trek" />
                     <h3>Star Trek</h3>
                     <p>Live long and prosper, y'all.</p>
+                    <p class="salute">🖖</p>
                 </td>
                 <td>
                     <Icon
@@ -48,7 +59,8 @@ import { Icon } from 'astro-icon/components'
                         aria-label="Reading"
                     />
                     <h3>Reading</h3>
-                    <p>Love to read, love to write.</p>
+                    <p>"{randomQuote.text}"</p>
+                    <p class="quote-source">— {randomQuote.source}</p>
                 </td>
             </tr>
         </table>
@@ -80,6 +92,15 @@ import { Icon } from 'astro-icon/components'
         }
     }
 
+    .interests .salute {
+        font-style: normal;
+        font-size: 2rem;
+    }
+    .quote-source {
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        opacity: 0.7;
+    }
     .interests {
         width: 100%;
         border-collapse: collapse;

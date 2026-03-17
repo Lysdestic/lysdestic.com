@@ -1,3 +1,6 @@
+/* ============================================================
+   CUSTOM PROPERTIES
+   ============================================================ */
 :root {
   --dark: hsl(216, 23%, 23%);
   --light: hsl(0, 0%, 98%);
@@ -36,6 +39,38 @@
   );
 }
 
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes gradient {
+  0%   { background-position: 100% 50%; }
+  50%  { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes link-underline {
+  0%   { background-position: 0% 100%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 100%; }
+}
+
+@keyframes lcars-stripe {
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+
+/* ============================================================
+   BASE / RESET
+   ============================================================ */
+*{
+  box-sizing: border-box;
+  line-height: calc(1em + 0.725rem);
+  -webkit-font-smoothing: antialiased;
+}
+
 html {
   height: 100%;
   background-image: var(--light-gradient);
@@ -43,12 +78,6 @@ html {
   background-attachment: fixed;
   color: var(--dark);
   scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-  line-height: calc(1em + 0.725rem);
-  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -62,6 +91,10 @@ body {
   font-weight: 400;
 }
 
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 h1 {
   font-size: 4.5rem;
 }
@@ -86,6 +119,10 @@ article {
   font-size: inherit;
 }
 
+
+/* ============================================================
+   LINKS
+   ============================================================ */
 a {
   text-decoration: none;
   background-image: linear-gradient(90deg, hsl(300, 50%, 60%), hsl(271, 40%, 65%), hsl(202, 50%, 60%));
@@ -108,24 +145,17 @@ address:active {
   border-radius: 2px;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+footer a {
+  background-image: none;
+  animation: none;
 }
 
-@keyframes link-underline {
-  0% { background-position: 0% 100%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 100%; }
-}
 
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+
+/* LCARS gradient text + stripe */
 .gradient-container {
   background: linear-gradient(320deg, hsl(300, 82%, 44%), hsl(300, 72%, 47%), hsl(271, 44%, 63%), hsl(202, 84%, 40%));
   background-size: 300% 200%;
@@ -135,11 +165,6 @@ address:active {
   -webkit-text-fill-color: var(--dark);
   position: relative;
   padding-left: 1.25rem;
-}
-
-.contacts-container a {
-  background-image: none;
-  animation: none;
 }
 
 .gradient-container::before {
@@ -161,12 +186,7 @@ address:active {
   border-radius: 2px;
 }
 
-@keyframes lcars-stripe {
-  0% { background-position: 50% 0%; }
-  50% { background-position: 50% 100%; }
-  100% { background-position: 50% 0%; }
-}
-
+/* Homepage heading */
 .heading-greeting {
   display: block;
 }
@@ -176,7 +196,19 @@ address:active {
   -webkit-text-fill-color: transparent;
 }
 
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media screen and (min-width: 600px) {
+  body {
+    font-size: 1.3rem;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
   .intro {
     font-size: 6rem;
   }
@@ -187,16 +219,20 @@ address:active {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .gradient-container {
-    -webkit-text-fill-color: var(--light);
-  }
 
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
   html {
     background-image: var(--dark-gradient);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: hsl(221deg 100% 9%);
     color: var(--light);
+  }
+
+  .gradient-container {
+    -webkit-text-fill-color: var(--light);
   }
 }

@@ -6,10 +6,9 @@ interface Video {
 
 interface Props {
     videos: Video[]
-    cycleInterval?: number
 }
 
-const { videos, cycleInterval = 15000 } = Astro.props
+const { videos } = Astro.props
 ---
 
 <div class="video-player">

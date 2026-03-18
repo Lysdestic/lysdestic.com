@@ -11,10 +11,14 @@ const { linkedIn, github, email, lastfm, facebook } = contactLinks
 
 <footer>
     <p>
-        Built with <a href="https://astro.build">Astro</a> by Lysdestic in <a
-            href="https://isportlandburning.com/">Portland, OR</a
-        ><br />siterev: {stardate}
+        Built with <LinkNewTab link="https://astro.build">Astro</LinkNewTab> by Lysdestic
+        in
+        <LinkNewTab link="https://isportlandburning.com/"
+            >Portland, OR</LinkNewTab
+        ><br />
+        sitrev: {stardate}
     </p>
+
     <div class="contacts-container">
         <LinkNewTab link={lastfm.link}>
             <Icon name="ion:musical-notes" aria-label={lastfm.label} />
@@ -31,9 +35,6 @@ const { linkedIn, github, email, lastfm, facebook } = contactLinks
         <LinkNewTab link={email.link}>
             <Icon name="ion:mail" aria-label={email.label} />
         </LinkNewTab>
-        <!-- <Email>
-      <Icon name="ion:mail" />
-    </Email> -->
     </div>
 </footer>
 

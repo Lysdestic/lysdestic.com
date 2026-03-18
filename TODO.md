@@ -4,7 +4,7 @@
 
 -   [ ] **Merge `newblogv6` into `main`** — blog is feature-complete and tested, ready to ship
 -   [ ] **Create `robots.txt` on server** — manually create in `public_html/` on cPanel (not committed, lives outside build output). Template in README. Include `/nerds/` disallow and AI crawler blocks.
-- [ ] **Automate deploy** — investigate SFTP (check cPanel SSH Access) and LiteSpeed Cache purge API (check cPanel for Cache Manager section). Goal: `deploy.sh` handles upload + cache purge with no manual steps.
+-   [ ] **Automate deploy** — investigate SFTP (check cPanel SSH Access) and LiteSpeed Cache purge API (check cPanel for Cache Manager section). Goal: `deploy.sh` handles upload + cache purge with no manual steps.
 
 ## Medium Priority
 

@@ -1,24 +1,78 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import portrait from '../assets/images/portrait.png'
 ---
 
 <Layout includeHeading subtitle="Howdy">
-    <div class="gradient-container">
-        <h2 class="intro">
-            I'm <span class="heading-name">Lysdestic</span>
-        </h2>
-        <p>
-            I'm a
-            <span class="role">bass player</span>
-            living in the
-            <span class="role">Pacific Northwest</span>
-        </p>
-        <p>
-            I enjoy
-            <span class="role">music</span>,
-            <span class="role">technology</span>, and
-            <span class="role">gaming</span>
-        </p>
-        <p>Hi. 🖖</p>
+    <div class="hero">
+        <div class="gradient-container">
+            <h2 class="intro">
+                I'm <span class="heading-name">Lysdestic</span>
+            </h2>
+            <p>
+                I'm a
+                <span class="role">bass player</span>
+                living in the
+                <span class="role">Pacific Northwest</span>
+            </p>
+            <p>
+                I enjoy
+                <span class="role">music</span>,
+                <span class="role">technology</span>, and
+                <span class="role">gaming</span>
+            </p>
+            <p>Hi. 🖖</p>
+        </div>
+        <div class="portrait-wrap">
+            <img src={portrait.src} alt="" class="portrait" />
+        </div>
     </div>
 </Layout>
+
+<style>
+    .hero {
+        position: relative;
+        min-height: 400px;
+        overflow: hidden;
+    }
+
+    .gradient-container {
+        position: relative;
+        z-index: 1;
+        max-width: 55%;
+    }
+
+    .portrait-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .portrait {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        mask-image: linear-gradient(
+            to left,
+            black 30%,
+            transparent 80%
+        );
+        -webkit-mask-image: linear-gradient(
+            to left,
+            black 30%,
+            transparent 80%
+        );
+        opacity: 0.7;
+    }
+
+    @media screen and (max-width: 600px) {
+        .portrait-wrap {
+            display: none;
+        }
+    }
+</style>

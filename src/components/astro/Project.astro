@@ -23,7 +23,7 @@ const { title, description, label, imageUrl, imageAlt, links } = Astro.props
             {
                 links.map((item: ProjectLink) => (
                     <LinkNewTab link={item.url} class={'deploy-link'}>
-                        <Icon name={item.icon} />
+                        <Icon name={item.icon} aria-hidden="true" />
                         {item.content}
                     </LinkNewTab>
                 ))

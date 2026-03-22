@@ -1,4 +1,10 @@
-<button class="hamburger" id="nav-toggle" aria-label="Toggle navigation">
+<button
+    class="hamburger"
+    id="nav-toggle"
+    aria-label="Open navigation menu"
+    aria-controls="nav-drawer"
+    aria-expanded="false"
+>
     <span></span>
     <span></span>
     <span></span>
@@ -28,12 +34,16 @@
         drawer.classList.add('open')
         overlay.classList.add('open')
         document.body.style.overflow = 'hidden'
+        toggle.setAttribute('aria-expanded', 'true')
+        close.focus()
     }
 
     function shut() {
         drawer.classList.remove('open')
         overlay.classList.remove('open')
         document.body.style.overflow = ''
+        toggle.setAttribute('aria-expanded', 'false')
+        toggle.focus()
     }
 
     toggle.addEventListener('click', open)

@@ -20,20 +20,20 @@ const { linkedIn, github, email, lastfm, facebook } = contactLinks
     </p>
 
     <div class="contacts-container">
-        <LinkNewTab link={lastfm.link}>
-            <Icon name="ion:musical-notes" aria-label={lastfm.label} />
+        <LinkNewTab link={lastfm.link} ariaLabel={lastfm.label}>
+            <Icon name="ion:musical-notes" aria-hidden="true" />
         </LinkNewTab>
-        <LinkNewTab link={facebook.link}>
-            <Icon name="ion:logo-facebook" aria-label={facebook.label} />
+        <LinkNewTab link={facebook.link} ariaLabel={facebook.label}>
+            <Icon name="ion:logo-facebook" aria-hidden="true" />
         </LinkNewTab>
-        <LinkNewTab link={github.link}>
-            <Icon name="ion:logo-github" aria-label={github.label} />
+        <LinkNewTab link={github.link} ariaLabel={github.label}>
+            <Icon name="ion:logo-github" aria-hidden="true" />
         </LinkNewTab>
-        <LinkNewTab link={linkedIn.link}>
-            <Icon name="ion:logo-linkedin" aria-label={linkedIn.label} />
+        <LinkNewTab link={linkedIn.link} ariaLabel={linkedIn.label}>
+            <Icon name="ion:logo-linkedin" aria-hidden="true" />
         </LinkNewTab>
-        <LinkNewTab link={email.link}>
-            <Icon name="ion:mail" aria-label={email.label} />
+        <LinkNewTab link={email.link} ariaLabel={email.label}>
+            <Icon name="ion:mail" aria-hidden="true" />
         </LinkNewTab>
     </div>
 </footer>

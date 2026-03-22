@@ -1,8 +1,8 @@
 ---
-const { link, text, class: className } = Astro.props
+const { link, text, class: className, ariaLabel } = Astro.props
 ---
 
-<a href={link} target="_blank" rel="noopener" class={className}>
+<a href={link} target="_blank" rel="noopener" class={className} aria-label={ariaLabel}>
     <slot>{text}</slot>
 </a>
 

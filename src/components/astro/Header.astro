@@ -10,7 +10,7 @@ import avatar from '../../assets/images/avatar.png'
       <Icon name="logo" aria-label="Go to homepage" />
       <span class="link-text">Homepage</span>
     </a> -->
-        <a href="/" aria-label="Go to homepage">
+        <a href="/" class="avatar-link" aria-label="Go to homepage">
             <img src={avatar.src} alt="Lysdestic home" style="width:64px;height:64px;" />
         </a>
         <Navigation />
@@ -101,6 +101,11 @@ import avatar from '../../assets/images/avatar.png'
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .avatar-link {
+        background-image: none;
+        animation: none;
     }
 
     @media screen and (min-width: 600px) {

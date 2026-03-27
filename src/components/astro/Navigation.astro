@@ -69,7 +69,8 @@
         overlay.addEventListener('click', () => shut())
         navLinks.forEach((link) => link.addEventListener('click', () => shut()))
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
+            const isOpen = toggle.getAttribute('aria-expanded') === 'true'
+            if (event.key === 'Escape' && isOpen) {
                 shut()
             }
         })

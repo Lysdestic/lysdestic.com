@@ -15,7 +15,7 @@
 -   [ ] **Sitemap submission** — sitemap now generates at `/sitemap-index.xml`, submit to Google Search Console and Bing Webmaster Tools
 -   [x] **Hamburger: close on nav link click** — drawer stays open after navigating, should auto-close
 -   [x] **Hamburger: close on Escape key** — keyboard accessibility
--   [ ] **Hamburger: only close on Escape when drawer is open** — avoid stealing focus when nav is already closed
+-   [x] **Hamburger: only close on Escape when drawer is open** — avoid stealing focus when nav is already closed
 -   [ ] **VideoPlayer empty-state guard** — prevent `videos[0]` crash if list is empty
 -   [ ] **External links hardening** — use `rel="noopener noreferrer"` anywhere `target="_blank"` is used
 -   [ ] **Install `@astrojs/check` and add `npm run check`** — enable typed Astro checks in regular workflow

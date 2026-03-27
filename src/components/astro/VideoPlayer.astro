@@ -8,63 +8,67 @@ interface Props {
     videos: Video[]
 }
 
-const { videos } = Astro.props
+const { videos = [] } = Astro.props
 ---
 
-<div class="video-player">
-    <div class="video-panel">
-        <iframe
-            id="video-iframe"
-            src={`https://www.youtube-nocookie.com/embed/${videos[0].id}`}
-            title={videos[0].title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div>
-    <div class="video-thumbnails">
-        {
-            videos.map((video, index) => (
-                <button
-                    class={`thumb-btn ${index === 0 ? 'active' : ''}`}
-                    data-video-id={video.id}
-                    data-video-title={video.title}
-                    data-index={index}
-                    aria-label={`Play ${video.title}`}
-                >
-                    <img
-                        src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                        alt=""
-                        loading="lazy"
-                    />
-                    <div class="thumb-overlay">▶</div>
-                </button>
-            ))
-        }
-    </div>
-</div>
+{
+    videos.length > 0 ? (
+        <div class="video-player">
+            <div class="video-panel">
+                <iframe
+                    id="video-iframe"
+                    src={`https://www.youtube-nocookie.com/embed/${videos[0].id}`}
+                    title={videos[0].title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <div class="video-thumbnails">
+                {videos.map((video, index) => (
+                    <button
+                        class={`thumb-btn ${index === 0 ? 'active' : ''}`}
+                        data-video-id={video.id}
+                        data-video-title={video.title}
+                        data-index={index}
+                        aria-label={`Play ${video.title}`}
+                    >
+                        <img
+                            src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                            alt=""
+                            loading="lazy"
+                        />
+                        <div class="thumb-overlay">▶</div>
+                    </button>
+                ))}
+            </div>
+        </div>
+    ) : (
+        <div class="video-player video-player-empty" role="status">
+            Videos coming soon.
+        </div>
+    )
+}
 
-<script define:vars={{ videos }}>
-    const iframe = document.getElementById('video-iframe')
-    const buttons = document.querySelectorAll('.thumb-btn')
-    const panel = document.querySelector('.video-panel')
-    let isPlaying = false
+{
+    videos.length > 0 && (
+        <script define:vars={{ videos }}>
+            const iframe = document.getElementById('video-iframe')
+            const buttons = document.querySelectorAll('.thumb-btn')
 
-    function loadVideo(index) {
-        const video = videos[index]
-        iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}`
-        iframe.title = video.title
-        buttons.forEach((btn, i) => {
-            btn.classList.toggle('active', i === index)
-        })
-    }
+            function loadVideo(index) {
+                const video = videos[index]
+                iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}`
+                iframe.title = video.title
+                buttons.forEach((btn, i) => {
+                    btn.classList.toggle('active', i === index)
+                })
+            }
 
-    panel.addEventListener('click', () => {
-        isPlaying = true
-    })
-
-    buttons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            isPlaying = false
-            loadVideo(parseInt(btn.dataset.index))
-        })
-    })
-</script>
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    loadVideo(parseInt(btn.dataset.index, 10))
+                })
+            })
+        </script>
+    )
+}

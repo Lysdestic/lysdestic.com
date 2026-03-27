@@ -11,8 +11,8 @@
 -   [x] **Delete `src/data/icons.ts`** — dead file, nothing imports it, references a `uil` icon set that isn't installed
 -   [x] **Delete `src/components/astro/Project.astro`** — dead component, never used after projects page was removed
 -   [ ] **Sitemap submission** — sitemap now generates at `/sitemap-index.xml`, submit to Google Search Console and Bing Webmaster Tools
--   [ ] **Hamburger: close on nav link click** — drawer stays open after navigating, should auto-close
--   [ ] **Hamburger: close on Escape key** — keyboard accessibility
+-   [x] **Hamburger: close on nav link click** — drawer stays open after navigating, should auto-close
+-   [x] **Hamburger: close on Escape key** — keyboard accessibility
 
 ## Low Priority / Nice to Have
 

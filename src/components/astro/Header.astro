@@ -4,120 +4,15 @@ import avatar from '../../assets/images/avatar.png'
 // import { Icon } from 'astro-icon/components'
 ---
 
-<header>
-    <nav>
+<header class="site-header">
+    <nav class="site-header-nav">
         <!-- <a href="/">
       <Icon name="logo" aria-label="Go to homepage" />
       <span class="link-text">Homepage</span>
     </a> -->
-        <a href="/" class="avatar-link" aria-label="Go to homepage">
+        <a href="/" class="avatar-link site-header-link" aria-label="Go to homepage">
             <img src={avatar.src} alt="Lysdestic home" style="width:64px;height:64px;" />
         </a>
         <Navigation />
     </nav>
 </header>
-
-<style>
-    @keyframes sawtooth_draw {
-        0% {
-            fill: inherit;
-            stroke: inherit;
-            stroke-dashoffset: 0;
-        }
-        50% {
-            fill: transparent;
-        }
-        100% {
-            fill: inherit;
-            stroke: inherit;
-            stroke-dashoffset: 0;
-        }
-    }
-
-    [data-icon] {
-        font-size: 6rem;
-        padding: 0.5rem;
-
-        fill: var(--dark);
-        stroke: var(--dark);
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 20px;
-    }
-
-    a:hover > .link-text,
-    a:focus > .link-text,
-    a:active > .link-text {
-        visibility: visible;
-    }
-
-    a:hover > [data-icon],
-    a:focus > [data-icon],
-    a:active > [data-icon] {
-        .base {
-            transition: stroke 100ms ease-in-out;
-            stroke: transparent;
-        }
-
-        .left-fill,
-        .right-fill {
-            fill: transparent;
-            stroke: transparent;
-            animation-name: sawtooth_draw;
-            animation-iteration-count: infinite;
-            animation-duration: 2000ms;
-            animation-fill-mode: both;
-            animation-timing-function: ease-in-out;
-        }
-
-        .left-fill {
-            stroke-dasharray: 880 882;
-            stroke-dashoffset: 881;
-
-            animation-delay: 0ms;
-        }
-
-        .right-fill {
-            stroke-dasharray: 553 555;
-            stroke-dashoffset: 554;
-
-            animation-delay: 200ms;
-        }
-    }
-
-    .link-text {
-        display: block;
-        visibility: hidden;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .avatar-link {
-        background-image: none;
-        animation: none;
-    }
-
-    @media screen and (min-width: 600px) {
-        [data-icon] {
-            font-size: 4.5rem;
-        }
-    }
-
-    @media (prefers-color-scheme: dark) {
-        [data-icon] {
-            fill: var(--light);
-            stroke: var(--light);
-        }
-    }
-</style>

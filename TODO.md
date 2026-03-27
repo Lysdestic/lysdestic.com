@@ -22,7 +22,7 @@
 
 ## Low Priority / Nice to Have
 
--   [ ] **CSS consolidation** — scoped `<style>` blocks scattered across `.astro` files. Astro's design encourages this pattern so it's not wrong, but shared patterns like `.quote-source`, `.salute`, `.tag`, `.interests` could move to `global.css`. Leave component-specific layout CSS in their files. Not urgent.
+-   [x] **CSS consolidation** — scoped `<style>` blocks scattered across `.astro` files. Astro's design encourages this pattern so it's not wrong, but shared patterns like `.quote-source`, `.salute`, `.tag`, `.interests` could move to `global.css`. Leave component-specific layout CSS in their files. Not urgent.
 -   [ ] **`about.astro` interest grid** — table layout works but CSS grid would be cleaner markup and better responsive behaviour
 -   [ ] **Blog: write real first post** — delete `hello-world.md` and `second-post.md` test posts before going live
 -   [ ] **Blog: tags on index page** — tags show on post pages but not on the blog index listing

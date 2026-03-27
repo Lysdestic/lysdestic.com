@@ -9,7 +9,7 @@ const astroVersion = pkg.dependencies.astro.replace('^', '')
 ---
 
 <Layout includeHeading subtitle=".nerdstats">
-    <article class="gradient-container">
+    <article class="gradient-container" id="nerds-page">
         <section class="stats-grid">
             <div class="stat-group">
                 <h3>Client</h3>
@@ -128,76 +128,3 @@ const astroVersion = pkg.dependencies.astro.replace('^', '')
     const match = siterevEl?.textContent?.match(/siterev[:\s]*([\d.]+)/)
     set('siterev', match ? match[1] : 'dev')
 </script>
-
-<style>
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .stat-group h3 {
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: hsl(271, 44%, 63%);
-        -webkit-text-fill-color: hsl(271, 44%, 63%);
-        margin-bottom: 0.75rem;
-        padding: 0;
-    }
-
-    dl {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.25rem 1rem;
-        margin: 0;
-    }
-
-    dt {
-        font-size: 0.8rem;
-        opacity: 0.6;
-        -webkit-text-fill-color: unset;
-    }
-
-    dd {
-        font-size: 0.8rem;
-        margin: 0;
-        font-family: monospace;
-        -webkit-text-fill-color: unset;
-    }
-
-    .troubleshooting,
-    .best-viewed {
-        margin-top: 2rem;
-        border-top: 1px solid var(--mid);
-        padding-top: 1.5rem;
-    }
-
-    .troubleshooting h3,
-    .best-viewed h3 {
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: hsl(271, 44%, 63%);
-        -webkit-text-fill-color: hsl(271, 44%, 63%);
-        margin-bottom: 0.75rem;
-        padding: 0;
-    }
-
-    .troubleshooting p,
-    .best-viewed p {
-        font-size: 0.9rem;
-        font-style: normal;
-        -webkit-text-fill-color: unset;
-        margin-bottom: 1rem;
-    }
-
-    code {
-        font-family: monospace;
-        font-size: 0.85rem;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0.1rem 0.3rem;
-        border-radius: 2px;
-    }
-</style>

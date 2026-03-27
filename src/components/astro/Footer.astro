@@ -9,7 +9,7 @@ const stardate = import.meta.env.PUBLIC_STARDATE ?? 'dev'
 const { linkedIn, github, email, lastfm, facebook } = contactLinks
 ---
 
-<footer>
+<footer class="site-footer">
     <p>
         Built with <LinkNewTab link="https://astro.build">Astro</LinkNewTab> by Lysdestic
         in
@@ -37,64 +37,3 @@ const { linkedIn, github, email, lastfm, facebook } = contactLinks
         </LinkNewTab>
     </div>
 </footer>
-
-<style>
-    [data-icon] {
-        font-size: 2rem;
-        color: var(--dark);
-    }
-
-    .contacts-container {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        font-size: 0;
-        height: 2rem;
-    }
-
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
-        padding: 2rem 0;
-        text-align: center;
-    }
-
-    footer p {
-        display: block;
-        width: 80%;
-        margin: 0;
-        padding-top: 2rem;
-        font-size: 0.8rem;
-        color: var(--mid);
-        line-height: 1.5;
-        border-top-color: var(--mid);
-        border-top-style: solid;
-        border-top-width: 1px;
-    }
-
-    @media screen and (min-width: 600px) {
-        footer {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-        }
-
-        footer p {
-            width: 50%;
-            padding-top: 0;
-            font-size: 1rem;
-            font-style: italic;
-            border-top-width: 0px;
-        }
-    }
-
-    @media (prefers-color-scheme: dark) {
-        [data-icon] {
-            color: var(--light);
-        }
-    }
-</style>

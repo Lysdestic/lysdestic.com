@@ -5,6 +5,8 @@
 -   [ ] **Merge `newblogv6` into `main`** — blog is feature-complete and tested, ready to ship
 -   [ ] **Create `robots.txt` on server** — manually create in `public_html/` on cPanel (not committed, lives outside build output). Template in README. Include `/nerds/` disallow and AI crawler blocks.
 -   [ ] **Automate deploy** — investigate SFTP (check cPanel SSH Access) and LiteSpeed Cache purge API (check cPanel for Cache Manager section). Goal: `deploy.sh` handles upload + cache purge with no manual steps.
+-   [ ] **Fix siterev mismatch (`sitrev` vs `siterev`)** — footer text and `/nerds` parser disagree, causing fallback to `dev`
+-   [ ] **Add CI quality gate** — run build + format check on push/PR to catch regressions before deploy
 
 ## Medium Priority
 
@@ -13,6 +15,10 @@
 -   [ ] **Sitemap submission** — sitemap now generates at `/sitemap-index.xml`, submit to Google Search Console and Bing Webmaster Tools
 -   [x] **Hamburger: close on nav link click** — drawer stays open after navigating, should auto-close
 -   [x] **Hamburger: close on Escape key** — keyboard accessibility
+-   [ ] **Hamburger: only close on Escape when drawer is open** — avoid stealing focus when nav is already closed
+-   [ ] **VideoPlayer empty-state guard** — prevent `videos[0]` crash if list is empty
+-   [ ] **External links hardening** — use `rel="noopener noreferrer"` anywhere `target="_blank"` is used
+-   [ ] **Install `@astrojs/check` and add `npm run check`** — enable typed Astro checks in regular workflow
 
 ## Low Priority / Nice to Have
 
@@ -21,6 +27,8 @@
 -   [ ] **Blog: write real first post** — delete `hello-world.md` and `second-post.md` test posts before going live
 -   [ ] **Blog: tags on index page** — tags show on post pages but not on the blog index listing
 -   [ ] **README** — update once blog merges to main (add blog section, update project structure and pages table)
+-   [ ] **README wording fix (quotes behavior)** — docs say quote is chosen at build time, but it is currently randomized client-side
+-   [ ] **Run Prettier cleanup pass** — `prettier --check` currently flags `package.json`, `Header.astro`, `LinkNewTab.astro`, and `404.astro`
 -   [ ] **Add more quotes to `quotes.ts`** — current pool is 11, more variety = better per-visit randomness
 
 ## Deferred

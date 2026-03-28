@@ -1,7 +1,7 @@
 {
     "name": "lysdestic.com-astro",
     "type": "module",
-    "version": "79688.7",
+    "version": "79703.1",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",

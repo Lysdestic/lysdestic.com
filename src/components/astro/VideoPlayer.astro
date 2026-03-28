@@ -55,10 +55,11 @@ const firstVideo = videos[0]!
     hasVideos && (
         <script define:vars={{ videos }}>
             const iframe = document.getElementById('video-iframe')
-            const buttons = document.querySelectorAll<HTMLButtonElement>('.thumb-btn')
+            const buttons = document.querySelectorAll('.thumb-btn')
 
             if (!(iframe instanceof HTMLIFrameElement)) {
-                throw new Error('Video iframe not found')
+                console.warn('Video iframe not found')
+                return
             }
 
             function loadVideo(index) {

@@ -126,5 +126,5 @@ const astroVersion = pkg.dependencies.astro.replace('^', '')
 
     const siterevEl = document.querySelector('footer p')
     const match = siterevEl?.textContent?.match(/siterev[:\s]*([\d.]+)/)
-    set('siterev', match ? match[1] : 'dev')
+    set('siterev', match?.[1] ?? 'dev')
 </script>

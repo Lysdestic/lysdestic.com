@@ -29,31 +29,44 @@
     const drawer = document.getElementById('nav-drawer')
     const overlay = document.getElementById('nav-overlay')
     const close = document.getElementById('nav-close')
-    const navLinks = document.querySelectorAll('.nav-links a')
 
-    if (!toggle || !drawer || !overlay || !close) {
+    if (
+        !(toggle instanceof HTMLButtonElement) ||
+        !(drawer instanceof HTMLElement) ||
+        !(overlay instanceof HTMLElement) ||
+        !(close instanceof HTMLButtonElement)
+    ) {
         console.warn('Navigation elements not found')
     } else {
-        function setOpen(isOpen, opts = { restoreFocus: false }) {
-            drawer.classList.toggle('open', isOpen)
-            overlay.classList.toggle('open', isOpen)
+        const navToggle = toggle
+        const navDrawer = drawer
+        const navOverlay = overlay
+        const navClose = close
+        const navLinks = navDrawer.querySelectorAll<HTMLAnchorElement>('.nav-links a')
+
+        function setOpen(
+            isOpen: boolean,
+            opts: { restoreFocus: boolean } = { restoreFocus: false },
+        ) {
+            navDrawer.classList.toggle('open', isOpen)
+            navOverlay.classList.toggle('open', isOpen)
             document.body.style.overflow = 'hidden'
             if (!isOpen) {
                 document.body.style.overflow = ''
             }
-            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
-            drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true')
-            overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true')
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+            navDrawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true')
+            navOverlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true')
             if (isOpen) {
-                close.focus()
+                navClose.focus()
                 return
             }
             if (opts.restoreFocus) {
-                toggle.focus()
+                navToggle.focus()
             }
         }
 
-        function shut(opts) {
+        function shut(opts: { restoreFocus: boolean } = { restoreFocus: true }) {
             setOpen(false, opts ?? { restoreFocus: true })
         }
 
@@ -61,15 +74,15 @@
             setOpen(false, { restoreFocus: false })
         }
 
-        toggle.addEventListener('click', () => {
-            const isOpen = toggle.getAttribute('aria-expanded') === 'true'
+        navToggle.addEventListener('click', () => {
+            const isOpen = navToggle.getAttribute('aria-expanded') === 'true'
             setOpen(!isOpen)
         })
-        close.addEventListener('click', () => shut())
-        overlay.addEventListener('click', () => shut())
+        navClose.addEventListener('click', () => shut())
+        navOverlay.addEventListener('click', () => shut())
         navLinks.forEach((link) => link.addEventListener('click', () => shut()))
         document.addEventListener('keydown', (event) => {
-            const isOpen = toggle.getAttribute('aria-expanded') === 'true'
+            const isOpen = navToggle.getAttribute('aria-expanded') === 'true'
             if (event.key === 'Escape' && isOpen) {
                 shut()
             }

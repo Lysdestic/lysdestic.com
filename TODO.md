@@ -18,7 +18,7 @@
 -   [x] **Hamburger: only close on Escape when drawer is open** — avoid stealing focus when nav is already closed
 -   [x] **VideoPlayer empty-state guard** — prevent `videos[0]` crash if list is empty
 -   [x] **External links hardening** — use `rel="noopener noreferrer"` anywhere `target="_blank"` is used
--   [ ] **Install `@astrojs/check` and add `npm run check`** — enable typed Astro checks in regular workflow
+-   [x] **Install `@astrojs/check` and add `npm run check`** — enable typed Astro checks in regular workflow
 
 ## Low Priority / Nice to Have
 

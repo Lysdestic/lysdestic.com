@@ -9,16 +9,18 @@ interface Props {
 }
 
 const { videos = [] } = Astro.props
+const hasVideos = videos.length > 0
+const firstVideo = videos[0]!
 ---
 
 {
-    videos.length > 0 ? (
+    hasVideos ? (
         <div class="video-player">
             <div class="video-panel">
                 <iframe
                     id="video-iframe"
-                    src={`https://www.youtube-nocookie.com/embed/${videos[0].id}`}
-                    title={videos[0].title}
+                    src={`https://www.youtube-nocookie.com/embed/${firstVideo.id}`}
+                    title={firstVideo.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 ></iframe>
@@ -50,10 +52,14 @@ const { videos = [] } = Astro.props
 }
 
 {
-    videos.length > 0 && (
+    hasVideos && (
         <script define:vars={{ videos }}>
             const iframe = document.getElementById('video-iframe')
-            const buttons = document.querySelectorAll('.thumb-btn')
+            const buttons = document.querySelectorAll<HTMLButtonElement>('.thumb-btn')
+
+            if (!(iframe instanceof HTMLIFrameElement)) {
+                throw new Error('Video iframe not found')
+            }
 
             function loadVideo(index) {
                 const video = videos[index]
@@ -66,7 +72,8 @@ const { videos = [] } = Astro.props
 
             buttons.forEach((btn) => {
                 btn.addEventListener('click', () => {
-                    loadVideo(parseInt(btn.dataset.index, 10))
+                    const index = parseInt(btn.dataset.index ?? '0', 10)
+                    loadVideo(index)
                 })
             })
         </script>

@@ -8,13 +8,13 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 
 ## Stack
 
--   **[Astro](https://astro.build) v6** — static site generator, outputs flat HTML/CSS/JS
--   **[astro-icon](https://github.com/natemoo-re/astro-icon)** with `@iconify-json/ion`, `@iconify-json/mdi`, `@iconify-json/simple-icons` — icon sets
--   **[@fontsource/albert-sans](https://fontsource.org/fonts/albert-sans)** and **[@fontsource/rokkitt](https://fontsource.org/fonts/rokkitt)** — self-hosted fonts
--   **Prettier** — code formatting
--   **TypeScript** (strict) — via `astro/tsconfigs/strictest`
--   **[@astrojs/check](https://docs.astro.build/en/guides/typescript/#type-checking)** — typed diagnostics for `.astro` files and scripts
--   Deployed to **cPanel shared hosting** (The Hosting Folks), proxied through **Cloudflare**
+- **[Astro](https://astro.build) v6** — static site generator, outputs flat HTML/CSS/JS
+- **[astro-icon](https://github.com/natemoo-re/astro-icon)** with `@iconify-json/ion`, `@iconify-json/mdi`, `@iconify-json/simple-icons` — icon sets
+- **[@fontsource/albert-sans](https://fontsource.org/fonts/albert-sans)** and **[@fontsource/rokkitt](https://fontsource.org/fonts/rokkitt)** — self-hosted fonts
+- **Prettier** — code formatting
+- **TypeScript** (strict) — via `astro/tsconfigs/strictest`
+- **[@astrojs/check](https://docs.astro.build/en/guides/typescript/#type-checking)** — typed diagnostics for `.astro` files and scripts
+- Deployed to **cPanel shared hosting** (The Hosting Folks), proxied through **Cloudflare**
 
 ---
 
@@ -47,14 +47,14 @@ src/
 
 ## Pages
 
-| Page            | Route      | Notes                                                     |
-| --------------- | ---------- | --------------------------------------------------------- |
-| Home            | `/`        | "Howdy" heading, gradient hero with intro text            |
+| Page            | Route      | Notes                                                        |
+| --------------- | ---------- | ------------------------------------------------------------ |
+| Home            | `/`        | "Howdy" heading, gradient hero with intro text               |
 | Media           | `/media`   | "Music" heading + band links + VideoPlayer thumbnail cycling |
-| About           | `/about`   | "Interests" heading, icon grid, random reading quote      |
-| Contact         | `/contact` | Custom heading + LinkedIn/GitHub/email links              |
-| Stats for Nerds | `/nerds`   | Hidden page — client/display/build stats, troubleshooting |
-| 404             | `/404`     | Homer backing into bushes gif                             |
+| About           | `/about`   | "Interests" heading, icon grid, random reading quote         |
+| Contact         | `/contact` | Custom heading + LinkedIn/GitHub/email links                 |
+| Stats for Nerds | `/nerds`   | Hidden page — client/display/build stats, troubleshooting    |
+| 404             | `/404`     | Homer backing into bushes gif                                |
 
 All pages use `Layout.astro`. Most pages use `includeHeading` with `subtitle` (subtitle becomes the `<h1>` and tab title), while pages can also render a custom `<h1>` directly when needed.
 
@@ -64,14 +64,14 @@ All pages use `Layout.astro`. Most pages use `includeHeading` with `subtitle` (s
 
 Everything lives in `src/styles/global.css`, organized into sections:
 
--   **Custom properties** — `--dark`, `--light`, `--mid`, light/dark gradient backgrounds
--   **Animations** — `gradient` (text), `link-underline` (anchor underlines), `lcars-stripe` (LCARS bar), `fade-in` (h1 page load), `slide-in-right` (content block page load)
--   **Base/reset** — box-sizing, font smoothing, body constraints
--   **Typography** — heading sizes, font families
--   **Links** — animated gradient underline using `background-image` trick; suppressed on `.contacts-container a` (footer icons)
--   **Components** — `.gradient-container` (animated gradient text + LCARS left stripe), `.heading-name`, `.role`
--   **Responsive** — breakpoint at `600px`
--   **Dark mode** — `prefers-color-scheme: dark`
+- **Custom properties** — `--dark`, `--light`, `--mid`, light/dark gradient backgrounds
+- **Animations** — `gradient` (text), `link-underline` (anchor underlines), `lcars-stripe` (LCARS bar), `fade-in` (h1 page load), `slide-in-right` (content block page load)
+- **Base/reset** — box-sizing, font smoothing, body constraints
+- **Typography** — heading sizes, font families
+- **Links** — animated gradient underline using `background-image` trick; suppressed on `.contacts-container a` (footer icons)
+- **Components** — `.gradient-container` (animated gradient text + LCARS left stripe), `.heading-name`, `.role`
+- **Responsive** — breakpoint at `600px`
+- **Dark mode** — `prefers-color-scheme: dark`
 
 ### LCARS accent
 
@@ -99,12 +99,12 @@ In local dev (`npm run dev`), `PUBLIC_STARDATE` is not set and the footer displa
 
 ## Data files
 
-| File              | Purpose                                                                           |
-| ----------------- | --------------------------------------------------------------------------------- |
-| `contactLinks.ts` | Social/contact links used in footer and contact page                              |
-| `mediaLinks.ts`   | Band links and metadata for the media page                                        |
+| File              | Purpose                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| `contactLinks.ts` | Social/contact links used in footer and contact page                                |
+| `mediaLinks.ts`   | Band links and metadata for the media page                                          |
 | `quotes.ts`       | Reading quotes — one is picked client-side on page load and shown on the About page |
-| `site.ts`         | Site-level config: host provider name, CDN name                                   |
+| `site.ts`         | Site-level config: host provider name, CDN name                                     |
 
 To add a quote, append an entry to `quotes.ts` with `text`, `source`, and `author` fields.
 
@@ -183,11 +183,11 @@ git push
 
 ### Notes
 
--   `deploy_upload/` is gitignored — zips never get committed.
--   `dist/` is also gitignored — the build output is never committed.
--   Astro config uses `output: 'static'` (default) — no server process required on the host.
--   The host (The Hosting Folks) runs its own cache layer. **Always purge there first** after deploying, before touching Cloudflare.
--   Cloudflare sits in front — if the host cache is clear but site still looks stale, purge Cloudflare too.
+- `deploy_upload/` is gitignored — zips never get committed.
+- `dist/` is also gitignored — the build output is never committed.
+- Astro config uses `output: 'static'` (default) — no server process required on the host.
+- The host (The Hosting Folks) runs its own cache layer. **Always purge there first** after deploying, before touching Cloudflare.
+- Cloudflare sits in front — if the host cache is clear but site still looks stale, purge Cloudflare too.
 
 ---
 

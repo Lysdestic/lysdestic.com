@@ -3,6 +3,12 @@ const { link, text, class: className, ariaLabel } = Astro.props
 const classes = ['link-new-tab', className].filter(Boolean).join(' ')
 ---
 
-<a href={link} target="_blank" rel="noopener noreferrer" class={classes} aria-label={ariaLabel}>
+<a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={classes}
+    aria-label={ariaLabel}
+>
     <slot>{text}</slot>
 </a>

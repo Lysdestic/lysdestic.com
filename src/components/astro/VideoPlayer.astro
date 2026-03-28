@@ -15,7 +15,11 @@ const firstVideo = videos[0]!
 
 {
     hasVideos ? (
-        <div class="video-player">
+        <div
+            class="video-player"
+            data-video-player
+            data-videos={JSON.stringify(videos)}
+        >
             <div class="video-panel">
                 <iframe
                     id="video-iframe"
@@ -23,7 +27,7 @@ const firstVideo = videos[0]!
                     title={firstVideo.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
-                ></iframe>
+                />
             </div>
             <div class="video-thumbnails">
                 {videos.map((video, index) => (
@@ -51,18 +55,18 @@ const firstVideo = videos[0]!
     )
 }
 
-{
-    hasVideos && (
-        <script define:vars={{ videos }}>
-            const iframe = document.getElementById('video-iframe')
-            const buttons = document.querySelectorAll('.thumb-btn')
+<script is:inline>
+    const player = document.querySelector('[data-video-player]')
 
-            if (!(iframe instanceof HTMLIFrameElement)) {
-                console.warn('Video iframe not found')
-                return
-            }
+    if (player instanceof HTMLElement) {
+        const videos = JSON.parse(player.dataset.videos ?? '[]')
+        const iframe = document.getElementById('video-iframe')
+        const buttons = document.querySelectorAll('.thumb-btn')
 
-            function loadVideo(index) {
+        if (!(iframe instanceof HTMLIFrameElement)) {
+            console.warn('Video iframe not found')
+        } else {
+            const loadVideo = (index) => {
                 const video = videos[index]
                 iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}`
                 iframe.title = video.title
@@ -77,6 +81,6 @@ const firstVideo = videos[0]!
                     loadVideo(index)
                 })
             })
-        </script>
-    )
-}
+        }
+    }
+</script>

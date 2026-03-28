@@ -42,7 +42,8 @@
         const navDrawer = drawer
         const navOverlay = overlay
         const navClose = close
-        const navLinks = navDrawer.querySelectorAll<HTMLAnchorElement>('.nav-links a')
+        const navLinks =
+            navDrawer.querySelectorAll<HTMLAnchorElement>('.nav-links a')
 
         function setOpen(
             isOpen: boolean,
@@ -66,7 +67,9 @@
             }
         }
 
-        function shut(opts: { restoreFocus: boolean } = { restoreFocus: true }) {
+        function shut(
+            opts: { restoreFocus: boolean } = { restoreFocus: true },
+        ) {
             setOpen(false, opts ?? { restoreFocus: true })
         }
 

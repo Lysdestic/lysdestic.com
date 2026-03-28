@@ -606,14 +606,20 @@ address:active {
 
 .interests {
     width: 100%;
-    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.interests td {
+.interest-card {
     padding: 1.5rem 1rem;
-    vertical-align: top;
-    width: 33%;
     text-align: center;
+    border: 1px solid color-mix(in oklab, currentColor 20%, transparent);
+    border-radius: 0.5rem;
+    background: color-mix(in oklab, currentColor 5%, transparent);
 }
 
 .interests h3 {
@@ -770,13 +776,8 @@ address:active {
 }
 
 @media screen and (max-width: 600px) {
-    .interests tr {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .interests td {
-        width: 100%;
+    .interests {
+        grid-template-columns: 1fr;
     }
 }
 

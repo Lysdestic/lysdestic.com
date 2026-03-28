@@ -7,62 +7,52 @@ import { quotes } from '../data/quotes'
 <Layout subtitle="About">
     <h1>Interests</h1>
     <article class="gradient-container" id="about-page">
-        <table class="interests">
-            <tr>
-                <td>
-                    <Icon name="mdi:music" aria-hidden="true" />
-                    <h3>Music</h3>
-                    <p>
-                        Punk, folk, country, indie, hip-hop, metal, jazz, new
-                        wave, eurotrash, musack, etc, etc.
-                    </p>
-                </td>
-                <td>
-                    <Icon name="mdi:music-clef-bass" aria-hidden="true" />
-                    <h3>Bass Guitar</h3>
-                    <p>
-                        20+ years experienced bassist; rocking the PDX punk
-                        scene since 2013.
-                    </p>
-                </td>
-                <td>
-                    <Icon name="simple-icons:opensuse" aria-hidden="true" />
-                    <h3>Linux</h3>
-                    <p>
-                        Avid Linux user since 2003, preferably openSUSE. Homelab
-                        enthusiast.
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <Icon
-                        name="mdi:microsoft-xbox-controller"
-                        aria-hidden="true"
-                    />
-                    <h3>Video Games</h3>
-                    <p>
-                        Playing, modding, and breaking video games on a platform
-                        near you.
-                    </p>
-                </td>
-                <td>
-                    <Icon name="simple-icons:startrek" aria-hidden="true" />
-                    <h3>Star Trek</h3>
-                    <p>Live long and prosper, y'all.</p>
-                    <p class="salute">🖖</p>
-                </td>
-                <td>
-                    <Icon
-                        name="mdi:book-open-page-variant"
-                        aria-hidden="true"
-                    />
-                    <h3>Reading</h3>
-                    <p id="quote-text"></p>
-                    <p class="quote-source" id="quote-source"></p>
-                </td>
-            </tr>
-        </table>
+        <ul class="interests" aria-label="Personal interests">
+            <li class="interest-card">
+                <Icon name="mdi:music" aria-hidden="true" />
+                <h3>Music</h3>
+                <p>
+                    Punk, folk, country, indie, hip-hop, metal, jazz, new wave,
+                    eurotrash, musack, etc, etc.
+                </p>
+            </li>
+            <li class="interest-card">
+                <Icon name="mdi:music-clef-bass" aria-hidden="true" />
+                <h3>Bass Guitar</h3>
+                <p>
+                    20+ years experienced bassist; rocking the PDX punk scene
+                    since 2013.
+                </p>
+            </li>
+            <li class="interest-card">
+                <Icon name="simple-icons:opensuse" aria-hidden="true" />
+                <h3>Linux</h3>
+                <p>
+                    Avid Linux user since 2003, preferably openSUSE. Homelab
+                    enthusiast.
+                </p>
+            </li>
+            <li class="interest-card">
+                <Icon name="mdi:microsoft-xbox-controller" aria-hidden="true" />
+                <h3>Video Games</h3>
+                <p>
+                    Playing, modding, and breaking video games on a platform
+                    near you.
+                </p>
+            </li>
+            <li class="interest-card">
+                <Icon name="simple-icons:startrek" aria-hidden="true" />
+                <h3>Star Trek</h3>
+                <p>Live long and prosper, y'all.</p>
+                <p class="salute">🖖</p>
+            </li>
+            <li class="interest-card">
+                <Icon name="mdi:book-open-page-variant" aria-hidden="true" />
+                <h3>Reading</h3>
+                <p id="quote-text"></p>
+                <p class="quote-source" id="quote-source"></p>
+            </li>
+        </ul>
     </article>
 </Layout>
 

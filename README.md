@@ -13,6 +13,7 @@ A personal landing page built with [Astro](https://astro.build). Hosted on share
 -   **[@fontsource/albert-sans](https://fontsource.org/fonts/albert-sans)** and **[@fontsource/rokkitt](https://fontsource.org/fonts/rokkitt)** — self-hosted fonts
 -   **Prettier** — code formatting
 -   **TypeScript** (strict) — via `astro/tsconfigs/strictest`
+-   **[@astrojs/check](https://docs.astro.build/en/guides/typescript/#type-checking)** — typed diagnostics for `.astro` files and scripts
 -   Deployed to **cPanel shared hosting** (The Hosting Folks), proxied through **Cloudflare**
 
 ---
@@ -49,13 +50,13 @@ src/
 | Page            | Route      | Notes                                                     |
 | --------------- | ---------- | --------------------------------------------------------- |
 | Home            | `/`        | "Howdy" heading, gradient hero with intro text            |
-| Media           | `/media`   | Band links + VideoPlayer component with thumbnail cycling |
-| About           | `/about`   | Interest grid with animated icons, random reading quote   |
-| Contact         | `/contact` | LinkedIn, GitHub, email links                             |
+| Media           | `/media`   | "Music" heading + band links + VideoPlayer thumbnail cycling |
+| About           | `/about`   | "Interests" heading, icon grid, random reading quote      |
+| Contact         | `/contact` | Custom heading + LinkedIn/GitHub/email links              |
 | Stats for Nerds | `/nerds`   | Hidden page — client/display/build stats, troubleshooting |
 | 404             | `/404`     | Homer backing into bushes gif                             |
 
-All pages use `Layout.astro`. Pages with a visible heading pass `includeHeading` and `subtitle` props — the subtitle becomes the `<h1>` and the browser tab title.
+All pages use `Layout.astro`. Most pages use `includeHeading` with `subtitle` (subtitle becomes the `<h1>` and tab title), while pages can also render a custom `<h1>` directly when needed.
 
 ---
 
@@ -102,10 +103,10 @@ In local dev (`npm run dev`), `PUBLIC_STARDATE` is not set and the footer displa
 | ----------------- | --------------------------------------------------------------------------------- |
 | `contactLinks.ts` | Social/contact links used in footer and contact page                              |
 | `mediaLinks.ts`   | Band links and metadata for the media page                                        |
-| `quotes.ts`       | Reading quotes — one is picked randomly at build time and shown on the About page |
+| `quotes.ts`       | Reading quotes — one is picked client-side on page load and shown on the About page |
 | `site.ts`         | Site-level config: host provider name, CDN name                                   |
 
-To add a quote, append an entry to `quotes.ts` with `text`, `source`, and `author` fields. Quotes marked with `⚠️ VERIFY` in comments should be fact-checked before deploying.
+To add a quote, append an entry to `quotes.ts` with `text`, `source`, and `author` fields.
 
 ---
 
@@ -145,6 +146,7 @@ Add an entry to the `videos` array in `src/pages/media.astro`:
 ```bash
 npm install
 npm run dev       # http://localhost:4321
+npm run check     # astro/type diagnostics
 npm run build     # builds to dist/
 npm run preview   # preview the build locally
 npm run format    # run prettier across all files
@@ -210,5 +212,7 @@ Disallow: /nerds/
 | `@iconify-json/simple-icons` | Simple Icons set — openSUSE, Star Trek icons on About page                  |
 | `@fontsource/albert-sans`    | Body/UI font, self-hosted                                                   |
 | `@fontsource/rokkitt`        | Heading font, self-hosted                                                   |
+| `@astrojs/check`             | Astro + TypeScript diagnostics (`npm run check`)                            |
+| `typescript`                 | Type checker used by Astro and `@astrojs/check`                             |
 | `prettier`                   | Code formatting — run with `npm run format`                                 |
 | `prettier-plugin-astro`      | Enables Prettier to format `.astro` files                                   |
